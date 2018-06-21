@@ -1,0 +1,55 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+	package
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:70-99
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:1-12:12
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:3:5-79
+	android:name
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:3:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:4:5-76
+	android:name
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:4:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:5:5-75
+	android:name
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:5:22-72
+application
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:7:5-10:19
+	android:supportsRtl
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:8:9-35
+	android:label
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml:7:18-50
+uses-sdk
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml
+		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\util\src\main\AndroidManifest.xml

@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+//jcenter
+apply plugin: 'com.novoda.bintray-release'
+//gitack
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.Springever'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    lintOptions {
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'org.apache.directory.studio:org.apache.commons.lang:2.6'
+    compile 'com.android.support:design:26.0+'
+    implementation files('libs/lhbank_android_sdk_1.0.0.jar')
+    implementation files('libs/lhbank_httpclient_4.5.3.jar')
+    implementation files('libs/lhbank_httpcore_4.3.2.jar')
+}
+
+//jcenter
+publish {
+    userOrg = 'mwp123555'
+    groupId = 'com.springever'
+    artifactId = 'util'
+    version = '1.0.0'
+    description = 'Super duper easy way to release your Android and other artifacts to bintray'
+    website = "https://github.com/Springever/UtilCode"
+}

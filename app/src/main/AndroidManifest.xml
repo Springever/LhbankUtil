@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.springever.utilcode">
+
+    <application>
+        <receiver android:name="com.springever.util.android.util.service.HandWareInfoReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.REQUEST_HANDWARE_INFO_BROADCAST" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.springever.util.android.util.service.HandWareInfoService" />
+    </application>
+
+</manifest>

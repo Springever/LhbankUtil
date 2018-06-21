@@ -1,0 +1,2 @@
+1、上传jcenter
+gradlew clean build bintrayUpload -PbintrayUser=mwp123555 -PbintrayKey=e3ced13af27f61cca0ce3631fae22f86c48454a5 -PdryRun=false -info
