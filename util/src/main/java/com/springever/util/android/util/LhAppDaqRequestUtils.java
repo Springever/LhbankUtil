@@ -1,7 +1,6 @@
 package com.springever.util.android.util;
 
 import android.content.Context;
-import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,14 +8,10 @@ import android.os.Message;
 
 import com.lhbank.client.sdk.core.util.NetWorkUtil;
 import com.lhbank.client.sdk.core.util.SharedPreUtil;
-import com.lhbank.client.sdk.core.util.Util;
 import com.springever.util.android.util.log.LogCollector;
-import com.springever.util.android.util.log.capture.CrashHandler;
-import com.springever.util.android.util.log.utils.LogHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 
 import java.util.List;
 
@@ -53,6 +48,7 @@ public class LhAppDaqRequestUtils {
         this.cifseq = cifseq;
         this.mobile = mobile;
         this.sharedPreUtil = new SharedPreUtil(activity);
+        handler = new MyHandler();
         LogCollector.init(activity);
     }
 
