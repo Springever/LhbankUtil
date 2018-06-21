@@ -210,7 +210,7 @@ public class LhAppDaqRequestUtils {
                 handler.sendEmptyMessage(1);
             }
         }).start();
-        /*
+        /**发广播
         sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",url);
         sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",cifseq);
         sharedPreUtil.setString("LhAppDaqRequestUtils_mobile",mobile);
