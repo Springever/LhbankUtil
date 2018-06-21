@@ -209,7 +209,7 @@ public class LhAppDaqRequestUtils {
             public void run() {
                 handler.sendEmptyMessage(1);
             }
-        });
+        }).start();
         /*
         sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",url);
         sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",cifseq);
