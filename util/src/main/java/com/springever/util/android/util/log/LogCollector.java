@@ -75,7 +75,6 @@ public class LogCollector {
 		LogFileStorage.getInstance(mContext).setDir(dir);
 		CrashHandler crashHandler = CrashHandler.getInstance(ctx);
 		crashHandler.init();
-		getLogcat();
 		return true;
 	}
 
@@ -116,6 +115,9 @@ public class LogCollector {
 			return false;
 	}
 
+	/**
+	 * 获取本应用android客户端logcat日志
+	 */
 	public static void getLogcat(){
 		DateFormat fmt2 = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
 		String path = dir + fmt2.format(new Date());
@@ -298,6 +300,7 @@ public class LogCollector {
 		} finally {
 
 		}
+		getLogcat();
 		return path;
 	}
 
