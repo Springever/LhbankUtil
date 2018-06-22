@@ -99,7 +99,6 @@ public class LhAppDaqRequestUtils {
     public static void requestClientHandWareInfoNotAsync(){
         JSONObject json = new JSONObject();
         Utils.init(activity);
-        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, "进入handleMessage");
         String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
         String uuid = getUUID(activity);//获取uuid
         String sdkDes = DeviceUtils.getSDKDescVersion();//获取系统SDK版本说明，例如4.3
