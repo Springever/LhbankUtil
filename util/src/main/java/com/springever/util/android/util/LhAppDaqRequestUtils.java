@@ -41,7 +41,7 @@ public class LhAppDaqRequestUtils {
 
     private String mobile;
 
-    private Handler handler;
+    //private Handler handler;
 
     private LhAppDaqRequestUtils(Context activity, String url, String cifseq, String mobile) {
         this.activity = activity;
@@ -49,7 +49,7 @@ public class LhAppDaqRequestUtils {
         this.cifseq = cifseq;
         this.mobile = mobile;
         this.sharedPreUtil = new SharedPreUtil(activity);
-        handler = new MyHandler();
+        //handler = new MyHandler();
         LogCollector.init(activity);
     }
 
@@ -67,144 +67,132 @@ public class LhAppDaqRequestUtils {
         return sInstance;
     }
 
-    private class MyHandler extends Handler {
-        @Override
-        public void handleMessage(Message message) {
-            JSONObject json = new JSONObject();
-            Utils.init(activity);
-            LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入handleMessage");
-            String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
-            String uuid = getUUID(activity);//获取uuid
-            String sdkDes = DeviceUtils.getSDKDescVersion();//获取系统SDK版本说明，例如4.3
-            String sdkInt = DeviceUtils.getSDKVersion() + "";//获取系统SDK版本号
-            String sysVer = DeviceUtils.getSystemVersion();//获取系统版本号,如MIUI9.5
-            String mac = DeviceUtils.getMacAddress();//获取mac地址
-            String vender = DeviceUtils.getManufacturer();//获取设备产商
-            String carrie = PhoneUtils.getSimOperatorByMnc();//获取网络运营商名称，如电信
-            String ip = NetworkUtils.getIPAddress(true);//ipv4
-            //获取gps经纬度
-            if (LocationUtils.isGpsEnabled() && LocationUtils.isLocationEnabled()) {//开gps且有定位服务权限
-                LocationUtils.register(10000, 10, new LocationUtils.OnLocationChangeListener() {
-                    @Override
-                    public void getLastKnownLocation(Location location) {
-                        if (location != null) {
-                            //latitude  纬度,longitude 经度
-                            lon = location.getLongitude();
-                            lat = location.getLatitude();
-                            lonlat = lon + "," + lat;
-                        }
-                    }
-
-                    @Override
-                    public void onLocationChanged(Location location) {
-
-                    }
-
-                    @Override
-                    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                    }
-                });
-            }
-            //String address = LocationUtils.getCountryName(lat, lon) + "," + LocationUtils.getLocality(lat, lon) + "," + LocationUtils.getStreet(lat, lon);//国家+所在地+街道
-            String address=null;
-            String imei = PhoneUtils.getIMEI();//imei
-            String imsi = PhoneUtils.getIMSI();//imsi
-            String androidId = DeviceUtils.getAndroidID();
-            String serialNumber = DeviceUtils.getSerialNumber();
-            String appInfo = null;
-            StringBuilder sb = new StringBuilder();
-            //获取已安装app信息(非系统自带）
-            List<AppUtils.AppInfo> appInfoList = AppUtils.getAppsInfo();
-            if (appInfoList != null && !appInfoList.isEmpty()) {
-                for (int i = 0; i < appInfoList.size(); i++) {
-                    if (!StringUtils.isEmpty(appInfoList.get(i).getName()) && !appInfoList.get(i).isSystem()) {
-                        sb.append(appInfoList.get(i).getName());
-                        sb.append(",");
-                    }
-                }
-                appInfo = sb.substring(0, sb.length() - 1);
-            }
-            try {
-                json.put("uuid", uuid);
-                json.put("clientType", "android");//系统型号
-                json.put("channel", "pmobile");//渠道
-                if (!StringUtils.isEmpty(cifseq)) {
-                    json.put("cifseq", cifseq);
-                } else {
-                    json.put("cifseq", "lhyh999999");
-                }
-                if (!StringUtils.isEmpty(mobile)) {
-                    json.put("mobile", mobile);
-                } else {
-                    json.put("mobile", "lhyh999999");
-                }
-                if (!StringUtils.isEmpty(model)) {
-                    json.put("model", model);
-                }
-                if (!StringUtils.isEmpty(sdkDes)) {
-                    json.put("sdkDes", sdkDes);
-                }
-                if (!StringUtils.isEmpty(sdkInt)) {
-                    json.put("sdkInt", sdkInt);
-                }
-                if (!StringUtils.isEmpty(sysVer)) {
-                    json.put("sysVer", sysVer);
-                }
-                if (!StringUtils.isEmpty(mac)) {
-                    json.put("mac", mac);
-                }
-                if (!StringUtils.isEmpty(vender)) {
-                    json.put("vender", vender);
-                }
-                if (!StringUtils.isEmpty(carrie)) {
-                    json.put("carrie", carrie);
-                }
-                if (!StringUtils.isEmpty(ip)) {
-                    json.put("ip", ip);
-                }
-                if (!StringUtils.isEmpty(lonlat)) {
-                    json.put("lonlat", lonlat);
-                }
-                if (!StringUtils.isEmpty(address)) {
-                    json.put("address", address);
-                }
-                if (!StringUtils.isEmpty(imei)) {
-                    json.put("imei", imei);
-                }
-                if (!StringUtils.isEmpty(imsi)) {
-                    json.put("imsi", imsi);
-                }
-                if (!StringUtils.isEmpty(androidId)) {
-                    json.put("androidId", androidId);
-                }
-                if (!StringUtils.isEmpty(serialNumber)) {
-                    json.put("serialNumber", serialNumber);
-                }
-                if (!StringUtils.isEmpty(appInfo)) {
-                    json.put("appInfo", appInfo);
-                }
-            } catch (JSONException e) {
-
-            }
-            String paramJson = json.toString();
-            LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, url + getClientHandWareInfo);
-            LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, paramJson);
-            requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
-        }
-    }
-
     /**
      * 采集硬件信息
      */
     public void requestClientHandWareInfo() {
         LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入requestClientHandWareInfo");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                handler.sendEmptyMessage(1);
+        JSONObject json = new JSONObject();
+        Utils.init(activity);
+        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入handleMessage");
+        String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
+        String uuid = getUUID(activity);//获取uuid
+        String sdkDes = DeviceUtils.getSDKDescVersion();//获取系统SDK版本说明，例如4.3
+        String sdkInt = DeviceUtils.getSDKVersion() + "";//获取系统SDK版本号
+        String sysVer = DeviceUtils.getSystemVersion();//获取系统版本号,如MIUI9.5
+        String mac = DeviceUtils.getMacAddress();//获取mac地址
+        String vender = DeviceUtils.getManufacturer();//获取设备产商
+        String carrie = PhoneUtils.getSimOperatorByMnc();//获取网络运营商名称，如电信
+        String ip = NetworkUtils.getIPAddress(true);//ipv4
+        //获取gps经纬度
+        if (LocationUtils.isGpsEnabled() && LocationUtils.isLocationEnabled()) {//开gps且有定位服务权限
+            LocationUtils.register(10000, 10, new LocationUtils.OnLocationChangeListener() {
+                @Override
+                public void getLastKnownLocation(Location location) {
+                    if (location != null) {
+                        //latitude  纬度,longitude 经度
+                        lon = location.getLongitude();
+                        lat = location.getLatitude();
+                        lonlat = lon + "," + lat;
+                    }
+                }
+
+                @Override
+                public void onLocationChanged(Location location) {
+
+                }
+
+                @Override
+                public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                }
+            });
+        }
+        //String address = LocationUtils.getCountryName(lat, lon) + "," + LocationUtils.getLocality(lat, lon) + "," + LocationUtils.getStreet(lat, lon);//国家+所在地+街道
+        String address=null;
+        String imei = PhoneUtils.getIMEI();//imei
+        String imsi = PhoneUtils.getIMSI();//imsi
+        String androidId = DeviceUtils.getAndroidID();
+        String serialNumber = DeviceUtils.getSerialNumber();
+        String appInfo = null;
+        StringBuilder sb = new StringBuilder();
+        //获取已安装app信息(非系统自带）
+        List<AppUtils.AppInfo> appInfoList = AppUtils.getAppsInfo();
+        if (appInfoList != null && !appInfoList.isEmpty()) {
+            for (int i = 0; i < appInfoList.size(); i++) {
+                if (!StringUtils.isEmpty(appInfoList.get(i).getName()) && !appInfoList.get(i).isSystem()) {
+                    sb.append(appInfoList.get(i).getName());
+                    sb.append(",");
+                }
             }
-        }).start();
+            appInfo = sb.substring(0, sb.length() - 1);
+        }
+        try {
+            json.put("uuid", uuid);
+            json.put("clientType", "android");//系统型号
+            json.put("channel", "pmobile");//渠道
+            if (!StringUtils.isEmpty(cifseq)) {
+                json.put("cifseq", cifseq);
+            } else {
+                json.put("cifseq", "lhyh999999");
+            }
+            if (!StringUtils.isEmpty(mobile)) {
+                json.put("mobile", mobile);
+            } else {
+                json.put("mobile", "lhyh999999");
+            }
+            if (!StringUtils.isEmpty(model)) {
+                json.put("model", model);
+            }
+            if (!StringUtils.isEmpty(sdkDes)) {
+                json.put("sdkDes", sdkDes);
+            }
+            if (!StringUtils.isEmpty(sdkInt)) {
+                json.put("sdkInt", sdkInt);
+            }
+            if (!StringUtils.isEmpty(sysVer)) {
+                json.put("sysVer", sysVer);
+            }
+            if (!StringUtils.isEmpty(mac)) {
+                json.put("mac", mac);
+            }
+            if (!StringUtils.isEmpty(vender)) {
+                json.put("vender", vender);
+            }
+            if (!StringUtils.isEmpty(carrie)) {
+                json.put("carrie", carrie);
+            }
+            if (!StringUtils.isEmpty(ip)) {
+                json.put("ip", ip);
+            }
+            if (!StringUtils.isEmpty(lonlat)) {
+                json.put("lonlat", lonlat);
+            }
+            if (!StringUtils.isEmpty(address)) {
+                json.put("address", address);
+            }
+            if (!StringUtils.isEmpty(imei)) {
+                json.put("imei", imei);
+            }
+            if (!StringUtils.isEmpty(imsi)) {
+                json.put("imsi", imsi);
+            }
+            if (!StringUtils.isEmpty(androidId)) {
+                json.put("androidId", androidId);
+            }
+            if (!StringUtils.isEmpty(serialNumber)) {
+                json.put("serialNumber", serialNumber);
+            }
+            if (!StringUtils.isEmpty(appInfo)) {
+                json.put("appInfo", appInfo);
+            }
+        } catch (JSONException e) {
+
+        }
+        String paramJson = json.toString();
+        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, url + getClientHandWareInfo);
+        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, paramJson);
+        requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
         /**发广播
          sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",url);
          sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",cifseq);
