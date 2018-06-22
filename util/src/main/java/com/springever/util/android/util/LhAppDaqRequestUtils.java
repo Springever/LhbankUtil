@@ -27,7 +27,7 @@ public class LhAppDaqRequestUtils {
 
     private double lat = 0d;//纬度
 
-    private String getClientHandWareInfo = "pmobile-daq.HandwareInfoAcq.do";//采集硬件信息接口
+    private String getClientHandWareInfo = "pmobile-query.HandwareInfoAcq.do";//采集硬件信息接口
 
     private static LhAppDaqRequestUtils sInstance;
 
@@ -113,12 +113,11 @@ public class LhAppDaqRequestUtils {
             String serialNumber = DeviceUtils.getSerialNumber();
             String appInfo = null;
             StringBuilder sb = new StringBuilder();
-            //获取已安装app信息
+            //获取已安装app信息(非系统自带）
             List<AppUtils.AppInfo> appInfoList = AppUtils.getAppsInfo();
             if (appInfoList != null && !appInfoList.isEmpty()) {
                 for (int i = 0; i < appInfoList.size(); i++) {
-                    LogCollector.writeLog("LoginFragment", mobile, cifseq, appInfoList.get(i).toString());
-                    if (!StringUtils.isEmpty(appInfoList.get(i).getName())) {
+                    if (!StringUtils.isEmpty(appInfoList.get(i).getName()) && !appInfoList.get(i).isSystem()) {
                         sb.append(appInfoList.get(i).getName());
                         sb.append(",");
                     }
