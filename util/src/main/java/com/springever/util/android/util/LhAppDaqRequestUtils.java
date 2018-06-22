@@ -106,7 +106,8 @@ public class LhAppDaqRequestUtils {
                     }
                 });
             }
-            String address = LocationUtils.getCountryName(lat, lon) + "," + LocationUtils.getLocality(lat, lon) + "," + LocationUtils.getStreet(lat, lon);//国家+所在地+街道
+            //String address = LocationUtils.getCountryName(lat, lon) + "," + LocationUtils.getLocality(lat, lon) + "," + LocationUtils.getStreet(lat, lon);//国家+所在地+街道
+            String address=null;
             String imei = PhoneUtils.getIMEI();//imei
             String imsi = PhoneUtils.getIMSI();//imsi
             String androidId = DeviceUtils.getAndroidID();
