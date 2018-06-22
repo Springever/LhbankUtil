@@ -22,25 +22,25 @@ import java.util.List;
  */
 public class LhAppDaqRequestUtils {
 
-    private String lonlat = null;//gps的经纬度
+    private static String lonlat = null;//gps的经纬度
 
-    private double lon = 0d;//经度
+    private static double lon = 0d;//经度
 
-    private double lat = 0d;//纬度
+    private static double lat = 0d;//纬度
 
-    private String getClientHandWareInfo = "pmobile-query.HandwareInfoAcq.do";//采集硬件信息接口
+    private static String getClientHandWareInfo = "pmobile-query.HandwareInfoAcq.do";//采集硬件信息接口
 
     private static LhAppDaqRequestUtils sInstance;
 
-    private Context activity;
+    private static Context activity;
 
     private SharedPreUtil sharedPreUtil;
 
-    private String url;
+    private static String url;
 
-    private String cifseq;
+    private static String cifseq;
 
-    private String mobile;
+    private static String mobile;
 
     private Handler handler;
 
@@ -96,10 +96,10 @@ public class LhAppDaqRequestUtils {
          */
     }
 
-    public void requestClientHandWareInfoNotAsync(){
+    public static void requestClientHandWareInfoNotAsync(){
         JSONObject json = new JSONObject();
         Utils.init(activity);
-        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入handleMessage");
+        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, "进入handleMessage");
         String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
         String uuid = getUUID(activity);//获取uuid
         String sdkDes = DeviceUtils.getSDKDescVersion();//获取系统SDK版本说明，例如4.3
@@ -215,8 +215,8 @@ public class LhAppDaqRequestUtils {
 
         }
         String paramJson = json.toString();
-        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, url + getClientHandWareInfo);
-        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, paramJson);
+        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, url + getClientHandWareInfo);
+        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, paramJson);
         requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
     }
 
@@ -226,7 +226,7 @@ public class LhAppDaqRequestUtils {
      * @param activity
      * @return
      */
-    public String getUUID(Context activity) {
+    public static String getUUID(Context activity) {
         UuidUtils.buidleID(activity).check();
         String uuid = UuidUtils.getUUID();//设备唯一标识
         uuid = uuid.replaceAll("-", "");
@@ -238,7 +238,7 @@ public class LhAppDaqRequestUtils {
      * @param url       请求连接,如https://ip:port/xx.do
      * @param paramJson json形成的字符串
      */
-    public void requestPmobileServer(Context activity, String url, String paramJson) {
+    public static void requestPmobileServer(Context activity, String url, String paramJson) {
         NetWorkUtil.getInstance(activity)
                 .requestPost(url, new Object(), paramJson, new NetWorkUtil.ResultCallBack() {
 
