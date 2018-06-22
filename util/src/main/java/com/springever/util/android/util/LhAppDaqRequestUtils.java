@@ -72,7 +72,7 @@ public class LhAppDaqRequestUtils {
         public void handleMessage(Message message) {
             JSONObject json = new JSONObject();
             Utils.init(activity);
-            LogCollector.writeLog("LoginFragment", mobile, cifseq, "进入handleMessage");
+            LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入handleMessage");
             String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
             String uuid = getUUID(activity);//获取uuid
             String sdkDes = DeviceUtils.getSDKDescVersion();//获取系统SDK版本说明，例如4.3
@@ -187,8 +187,8 @@ public class LhAppDaqRequestUtils {
 
             }
             String paramJson = json.toString();
-            LogCollector.writeLog("LoginFragment", mobile, cifseq, url + getClientHandWareInfo);
-            LogCollector.writeLog("LoginFragment", mobile, cifseq, paramJson);
+            LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, url + getClientHandWareInfo);
+            LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, paramJson);
             requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
         }
     }
@@ -197,7 +197,7 @@ public class LhAppDaqRequestUtils {
      * 采集硬件信息
      */
     public void requestClientHandWareInfo() {
-        LogCollector.writeLog("LoginFragment", mobile, cifseq, "进入requestClientHandWareInfo");
+        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入requestClientHandWareInfo");
         new Thread(new Runnable() {
             @Override
             public void run() {

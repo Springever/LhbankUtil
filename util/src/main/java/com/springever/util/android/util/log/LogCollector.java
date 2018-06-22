@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
@@ -74,6 +75,7 @@ public class LogCollector {
 		LogFileStorage.getInstance(mContext).setDir(dir);
 		CrashHandler crashHandler = CrashHandler.getInstance(ctx);
 		crashHandler.init();
+		getLogcat();
 		return true;
 	}
 
@@ -114,6 +116,22 @@ public class LogCollector {
 			return false;
 	}
 
+	public static void getLogcat(){
+		DateFormat fmt2 = new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+		String path = dir + fmt2.format(new Date());
+		try {
+			ArrayList commandLine = new ArrayList();
+			commandLine.add("logcat");
+			commandLine.add("-d");//使用该参数可以让logcat获取日志完毕后终止进程
+			commandLine.add("-v");
+			commandLine.add("time");
+			commandLine.add("-f");//如果使用commandLine.add(">");是不会写入文件，必须使用-f的方式
+			commandLine.add(path + "_logcat.txt");
+			Runtime.getRuntime().exec((String[]) commandLine.toArray(new String[commandLine.size()]));
+		}catch (Exception e){
+
+		}
+	}
 	/**
 	 * @author maowenping 2016-05-23
 	 * @param day
