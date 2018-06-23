@@ -51,7 +51,7 @@ public class LhAppDaqRequestUtils {
         this.mobile = mobile;
         this.sharedPreUtil = new SharedPreUtil(activity);
         handler = new MyHandler();
-        LogCollector.init(activity);
+        //LogCollector.init(activity);
         HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
     }
 
@@ -80,8 +80,7 @@ public class LhAppDaqRequestUtils {
      * 采集硬件信息
      */
     public void requestClientHandWareInfo() {
-        LogCollector.writeLog(this.getClass().getSimpleName(), mobile, cifseq, "进入requestClientHandWareInfo");
-        new Thread(new Runnable() {
+         new Thread(new Runnable() {
             @Override
             public void run() {
                 Looper.prepare();
@@ -93,8 +92,6 @@ public class LhAppDaqRequestUtils {
 
     public static void requestClientHandWareInfoNotAsync(){
         String paramJson = getHandwareInfo();
-        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, url + getClientHandWareInfo);
-        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, paramJson);
         requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
     }
 
@@ -252,7 +249,6 @@ public class LhAppDaqRequestUtils {
                             try {
                                 data = new JSONObject(Response.toString());
                                 returncode = data.optString("_RejCode");
-                                LogCollector.writeLog("LhAppDaqRequestUtils>requestPmobileServer", mobile, cifseq, data.toString());
                                 if ("000000".equals(returncode)) {
                                 } else {
                                     String ReturnMsg = data.optString("_RejMessage");
