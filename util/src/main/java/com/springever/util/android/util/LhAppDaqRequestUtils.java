@@ -52,7 +52,7 @@ public class LhAppDaqRequestUtils {
         this.sharedPreUtil = new SharedPreUtil(activity);
         handler = new MyHandler();
         //LogCollector.init(activity);
-        HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
+        //HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
     }
 
     /**
