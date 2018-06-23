@@ -383,6 +383,7 @@ getNetworkOperatorName: 获取移动网络运营商名称
 getNetworkType        : 获取当前网络类型
 getIPAddress          : 获取IP地址
 getDomainAddress      : 获取域名ip地址
+intToIp               : int的ip转成ip字符串
 ```
 
 * ### 手机相关→[PhoneUtils.java]
