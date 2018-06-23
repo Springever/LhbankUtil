@@ -91,14 +91,14 @@ public class LhAppDaqRequestUtils {
      * @param mobile
      */
     public void requestClientHandWareInfoNotAsync(String url, String cifseq, String mobile) {
-        String paramJson = getHandwareInfo(url, cifseq, mobile);
+        String paramJson = getHandwareInfo(cifseq, mobile);
         requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
     }
 
     /**
      * 采集硬件信息
      */
-    public String getHandwareInfo(String url, String cifseq, String mobile) {
+    public String getHandwareInfo(String cifseq, String mobile) {
         JSONObject json = new JSONObject();
         Utils.init(activity);
         String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
