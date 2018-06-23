@@ -9,7 +9,6 @@ import android.os.Message;
 
 import com.lhbank.client.sdk.core.util.NetWorkUtil;
 import com.lhbank.client.sdk.core.util.SharedPreUtil;
-import com.springever.util.android.HKEApiUtils;
 import com.springever.util.android.util.log.LogCollector;
 
 import org.json.JSONException;
