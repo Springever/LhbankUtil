@@ -22,49 +22,36 @@ import java.util.List;
  */
 public class LhAppDaqRequestUtils {
 
-    private static String lonlat = null;//gps的经纬度
+    private String lonlat = null;//gps的经纬度
 
-    private static double lon = 0d;//经度
+    private double lon = 0d;//经度
 
-    private static double lat = 0d;//纬度
+    private double lat = 0d;//纬度
 
-    private static String getClientHandWareInfo = "pmobile-query.HandwareInfoAcq.do";//采集硬件信息接口
+    private String getClientHandWareInfo = "pmobile-query.HandwareInfoAcq.do";//采集硬件信息接口
 
     private static LhAppDaqRequestUtils sInstance;
 
-    private static Context activity;
+    private Context activity;
 
     private SharedPreUtil sharedPreUtil;
 
-    private static String url;
-
-    private static String cifseq;
-
-    private static String mobile;
-
     private Handler handler;
 
-    private LhAppDaqRequestUtils(Context activity, String url, String cifseq, String mobile) {
-        this.activity = activity;
-        this.url = url;
-        this.cifseq = cifseq;
-        this.mobile = mobile;
-        this.sharedPreUtil = new SharedPreUtil(activity);
-        handler = new MyHandler();
-        //LogCollector.init(activity);
-        //HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
+    private LhAppDaqRequestUtils() {
     }
 
-    /**
-     * @param activity 上下文
-     * @param url      请求连接,如https//m.wegobank.cn/pmobile/
-     * @param cifseq   手机银行电子客户号（非核心客户号）
-     * @param mobile   客户手机号
-     * @return
-     */
-    public static LhAppDaqRequestUtils getInstance(Context activity, String url, String cifseq, String mobile) {
+    public void init(Context activity) {
+        LogCollector.init(activity);
+        HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
+        this.activity = activity;
+        this.sharedPreUtil = new SharedPreUtil(activity);
+        handler = new MyHandler();
+    }
+
+    public static LhAppDaqRequestUtils getInstance() {
         if (sInstance == null) {
-            sInstance = new LhAppDaqRequestUtils(activity, url, cifseq, mobile);
+            sInstance = new LhAppDaqRequestUtils();
         }
         return sInstance;
     }
@@ -72,33 +59,46 @@ public class LhAppDaqRequestUtils {
     private class MyHandler extends Handler {
         @Override
         public void handleMessage(Message message) {
-            requestClientHandWareInfoNotAsync();
+            Bundle bundle = message.getData();
+            requestClientHandWareInfoNotAsync(bundle.getString("url"), bundle.getString("cifseq"), bundle.getString("mobile"));
         }
     }
 
     /**
      * 采集硬件信息
      */
-    public void requestClientHandWareInfo() {
-         new Thread(new Runnable() {
+    public void requestClientHandWareInfo(final String url, final String cifseq, final String mobile) {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 Looper.prepare();
-                handler.sendEmptyMessage(1);
+                Message message = new Message();
+                Bundle bundle = new Bundle();
+                bundle.putString("url", url);
+                bundle.putString("cifseq", cifseq);
+                bundle.putString("mobile", mobile);
+                message.setData(bundle);
+                handler.sendMessage(message);
                 Looper.loop();
             }
         }).start();
     }
 
-    public static void requestClientHandWareInfoNotAsync(){
-        String paramJson = getHandwareInfo();
+    /**
+     *
+     * @param url
+     * @param cifseq
+     * @param mobile
+     */
+    public void requestClientHandWareInfoNotAsync(String url, String cifseq, String mobile) {
+        String paramJson = getHandwareInfo(url, cifseq, mobile);
         requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
     }
 
     /**
      * 采集硬件信息
      */
-    public static String getHandwareInfo(){
+    public String getHandwareInfo(String url, String cifseq, String mobile) {
         JSONObject json = new JSONObject();
         Utils.init(activity);
         String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
@@ -135,7 +135,7 @@ public class LhAppDaqRequestUtils {
             });
         }
         //String address = LocationUtils.getCountryName(lat, lon) + "," + LocationUtils.getLocality(lat, lon) + "," + LocationUtils.getStreet(lat, lon);//国家+所在地+街道
-        String address=null;
+        String address = null;
         String imei = PhoneUtils.getIMEI();//imei
         String imsi = PhoneUtils.getIMSI();//imsi
         String androidId = DeviceUtils.getAndroidID();
@@ -225,7 +225,7 @@ public class LhAppDaqRequestUtils {
      * @param activity
      * @return
      */
-    public static String getUUID(Context activity) {
+    public String getUUID(Context activity) {
         UuidUtils.buidleID(activity).check();
         String uuid = UuidUtils.getUUID();//设备唯一标识
         uuid = uuid.replaceAll("-", "");
@@ -237,7 +237,7 @@ public class LhAppDaqRequestUtils {
      * @param url       请求连接,如https://ip:port/xx.do
      * @param paramJson json形成的字符串
      */
-    public static void requestPmobileServer(Context activity, String url, String paramJson) {
+    public void requestPmobileServer(Context activity, String url, String paramJson) {
         NetWorkUtil.getInstance(activity)
                 .requestPost(url, new Object(), paramJson, new NetWorkUtil.ResultCallBack() {
 
@@ -269,17 +269,5 @@ public class LhAppDaqRequestUtils {
                     public void onError(Object arg0) {
                     }
                 });
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public String getCifseq() {
-        return cifseq;
-    }
-
-    public String getMobile() {
-        return mobile;
     }
 }
