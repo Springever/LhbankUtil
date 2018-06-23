@@ -89,15 +89,19 @@ public class LhAppDaqRequestUtils {
                 Looper.loop();
             }
         }).start();
-        /**发广播
-         sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",url);
-         sharedPreUtil.setString("LhAppDaqRequestUtils_cifseq",cifseq);
-         sharedPreUtil.setString("LhAppDaqRequestUtils_mobile",mobile);
-         activity.sendBroadcast(new Intent("android.intent.action.REQUEST_HANDWARE_INFO_BROADCAST"));
-         */
     }
 
     public static void requestClientHandWareInfoNotAsync(){
+        String paramJson = getHandwareInfo();
+        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, url + getClientHandWareInfo);
+        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, paramJson);
+        requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
+    }
+
+    /**
+     * 采集硬件信息
+     */
+    public static String getHandwareInfo(){
         JSONObject json = new JSONObject();
         Utils.init(activity);
         String model = DeviceUtils.getModel();//获取设备型号；如MI2SC-小米
@@ -215,9 +219,7 @@ public class LhAppDaqRequestUtils {
 
         }
         String paramJson = json.toString();
-        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, url + getClientHandWareInfo);
-        LogCollector.writeLog("LhAppDaqRequestUtils", mobile, cifseq, paramJson);
-        requestPmobileServer(activity, url + getClientHandWareInfo, paramJson);
+        return paramJson;
     }
 
     /**
