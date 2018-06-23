@@ -249,6 +249,7 @@ public class LhAppDaqRequestUtils {
                             try {
                                 data = new JSONObject(Response.toString());
                                 returncode = data.optString("_RejCode");
+                                LogCollector.writeLog("LhAppDaqRequestUtils>requestPmobileServer", mobile, cifseq, data.toString());
                                 if ("000000".equals(returncode)) {
                                 } else {
                                     String ReturnMsg = data.optString("_RejMessage");
