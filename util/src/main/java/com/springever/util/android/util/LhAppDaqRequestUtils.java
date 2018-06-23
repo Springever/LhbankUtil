@@ -9,6 +9,7 @@ import android.os.Message;
 
 import com.lhbank.client.sdk.core.util.NetWorkUtil;
 import com.lhbank.client.sdk.core.util.SharedPreUtil;
+import com.springever.util.android.HKEApiUtils;
 import com.springever.util.android.util.log.LogCollector;
 
 import org.json.JSONException;
@@ -52,6 +53,7 @@ public class LhAppDaqRequestUtils {
         this.sharedPreUtil = new SharedPreUtil(activity);
         handler = new MyHandler();
         LogCollector.init(activity);
+        HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
     }
 
     /**
