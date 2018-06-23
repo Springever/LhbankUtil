@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
-INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
-INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
-INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
 MERGED from [:util] C:\WorkSpace\AndroidStudioProjects\UtilCode\util\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-20:12
 MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\Springever\.gradle\caches\transforms-1\files-1.1\design-26.0.0-alpha1.aar\626ec4c9269e5091a25795f86b357a40\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] C:\Users\Springever\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.0.0-alpha1.aar\0cd151279845d484784eaa280debfcc0\AndroidManifest.xml:17:1-31:12
@@ -17,25 +17,25 @@ MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Springe
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] C:\Users\Springever\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.0.0-alpha1.aar\a98fb9e69881ef92f65dd853766a10b6\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] C:\Users\Springever\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.0.0-alpha1.aar\77e411b2f77755e5e610c134ad1c8cf5\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Springever\.gradle\caches\transforms-1\files-1.1\support-compat-26.0.0-alpha1.aar\5f301c32eadef00c86044a3f632a036b\AndroidManifest.xml:17:1-31:12
-INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
-INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
-INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
+INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
 	package
 		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
 		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
-		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
 		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
-		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-17:12
+		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:1-8:12
 		INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:5:5-15:19
+ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:5:5-6:19
 MERGED from [:util] C:\WorkSpace\AndroidStudioProjects\UtilCode\util\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:5-18:19
 MERGED from [:util] C:\WorkSpace\AndroidStudioProjects\UtilCode\util\build\intermediates\manifests\full\debug\AndroidManifest.xml:15:5-18:19
 MERGED from [com.android.support:design:26.0.0-alpha1] C:\Users\Springever\.gradle\caches\transforms-1\files-1.1\design-26.0.0-alpha1.aar\626ec4c9269e5091a25795f86b357a40\AndroidManifest.xml:29:5-20
@@ -64,24 +64,6 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Springev
 		ADDED from [:util] C:\WorkSpace\AndroidStudioProjects\UtilCode\util\build\intermediates\manifests\full\debug\AndroidManifest.xml:17:9-35
 	android:label
 		ADDED from [:util] C:\WorkSpace\AndroidStudioProjects\UtilCode\util\build\intermediates\manifests\full\debug\AndroidManifest.xml:16:9-41
-receiver#com.springever.util.android.util.service.HandWareInfoReceiver
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:6:9-12:20
-	android:name
-		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:6:19-95
-intent-filter#android.intent.action.REQUEST_HANDWARE_INFO_BROADCAST+android.intent.category.DEFAULT
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:7:13-11:29
-action#android.intent.action.REQUEST_HANDWARE_INFO_BROADCAST
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:8:17-96
-	android:name
-		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:8:25-93
-category#android.intent.category.DEFAULT
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:10:17-76
-	android:name
-		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:10:27-73
-service#com.springever.util.android.util.service.HandWareInfoService
-ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:14:9-96
-	android:name
-		ADDED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml:14:18-93
 uses-sdk
 INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\WorkSpace\AndroidStudioProjects\UtilCode\app\src\main\AndroidManifest.xml
