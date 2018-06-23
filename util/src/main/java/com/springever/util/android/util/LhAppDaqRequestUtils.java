@@ -42,7 +42,6 @@ public class LhAppDaqRequestUtils {
     }
 
     public void init(Context activity) {
-        LogCollector.init(activity);
         //HKEApiUtils.initialize(activity, "BANKOFLANHAI_SCCBA", "APPOFLANHAI_SCCBA");
         this.activity = activity;
         this.sharedPreUtil = new SharedPreUtil(activity);
