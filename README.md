@@ -616,23 +616,6 @@ getComments       : 获取压缩文件中的注释链表
 getEntries        : 获取压缩文件中的文件对象
 ```
 
-* ### 加密相关→[security]
-```
-AESCoder   : aes算法
-Base64     : base64
-Base64Custom : base64
-Converts   : hexStringToByte把16进制字符串转换成字节数组;
-             bytesToHexString把字节数组转换成16进制字符串
-             bytesToObject把字节数组转换为对象
-             objectToBytes把可序列化对象转换成字节数组
-             bcd2StrBCD码转为10进制串(阿拉伯数据)
-             str2Bcd十进制串转为BCD码
-DESPlus    : des算法
-DesSecurity: des算法
-MD5        : md5
-RSACerPlus : rsa
-```
-
 * ### 日集收集→[adnroid.log]
 ```
 LogCollector.init(getApplicationContext()));
@@ -660,7 +643,6 @@ setBufferSize              : 设置缓冲区尺寸
 
 * ### 查找区域→[java.AddressUtils]
 getAddresses	: 根据ip查找地址区域
-
 ```
 
 * ### 农历与公历→[java.LunarUtils]
@@ -748,6 +730,23 @@ encrypt3DES, encrypt3DES2HexString, encrypt3DES2Base64: 3DES加密
 decrypt3DES, decryptHexString3DES, decryptBase64_3DES : 3DES解密
 encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密
 decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
+```
+
+* ### 加密相关→[java.security]
+```
+AESCoder   : aes算法
+Base64     : base64
+Base64Custom : base64
+Converts   : hexStringToByte把16进制字符串转换成字节数组;
+             bytesToHexString把字节数组转换成16进制字符串
+             bytesToObject把字节数组转换为对象
+             objectToBytes把可序列化对象转换成字节数组
+             bcd2StrBCD码转为10进制串(阿拉伯数据)
+             str2Bcd十进制串转为BCD码
+DESPlus    : des算法
+DesSecurity: des算法
+MD5        : md5
+RSACerPlus : rsa
 ```
 ***
 
