@@ -1,5 +1,7 @@
 package com.springever.util.java;
 
+import java.text.MessageFormat;
+
 /**
  * <pre>
  *
@@ -186,5 +188,15 @@ public final class StringUtils {
             }
         }
         return new String(chars);
+    }
+
+    /**
+     * 格式化字符串
+     * @param suffix
+     * @return
+     */
+    public static String formatString(String suffix){
+        //String suffix="index.html?ChannelId=wxbank&openid={0}&state=#/{1}";
+        return MessageFormat.format(suffix, "788888", "message");
     }
 }

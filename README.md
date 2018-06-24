@@ -617,6 +617,7 @@ lowerFirstLetter: 首字母小写
 reverse         : 反转字符串
 toDBC           : 转化为半角字符
 toSBC           : 转化为全角字符
+formatString    : 格式化字符串a={0}&b={1}
 ```
 
 * ### Shell相关→[java.ShellUtils]
@@ -647,7 +648,8 @@ getReplaceAll  : 替换所有正则匹配的部分
 
 * ### uuid相关→[java.UuidUtils]
 ```
-getUUID: 生成一个128位的唯一标识符
+getUUID        : 生成一个128位的唯一标识符
+getUserid      : 生成一个用户id
 ```
 
 * ### uuid相关→[java.DateUtils]
@@ -867,6 +869,11 @@ getHAccno                : accno生成加密数组
 * ### 树排序相关→[java.sort.TreeSortUtils]
 ```
 sort4Tree                : 按树结构进行排序
+```
+
+* ### token相关→[java.AccessTokenUtil]
+```
+generateAccessToken      : 获取token
 ```
 ***
 

@@ -5,4 +5,10 @@ public class UuidUtils {
     public static String getUUID() {
         return java.util.UUID.randomUUID().toString();
     }
+
+    //生成用户id
+    public static String getUserid(){
+        String userId=System.currentTimeMillis()+getUUID().toString().replaceAll("\\-", "").substring(0,7);
+        return userId;
+    }
 }
