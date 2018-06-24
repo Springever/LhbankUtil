@@ -598,7 +598,7 @@ showLong             : 显示长时吐司
 cancel               : 取消吐司显示
 ```
 
-* ### 压缩相关→[android.UuidUtils]
+* ### uuid相关→[android.UuidUtils]
 ```
 第一步:UuidUtils.buidleID(context).check();
 第二步:String uuid= UuidUtils.getUUID()
@@ -638,6 +638,8 @@ RSACerPlus : rsa
 LogCollector.init(getApplicationContext()));
 日志在：Environment.getExternalStorageDirectory()
     					.getAbsolutePath()+"/LhbankLog/"下
+```
+***
 
  ## Java API
 
