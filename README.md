@@ -723,6 +723,7 @@ getFormatDate           : 格式化时间（yyyy/MM/dd HH:mm:ss）
 getTwoDay               : 获取连个时间相差的天数，支持yyyy/MM/dd与yyyy-MM-dd
 getDateFutureOrBefore   : 根据初始时间和相隔天数计算最终时间
 ```
+
 * ### 加密解密相关→[java.EncryptUtils]
 ```
 encryptMD2, encryptMD2ToString                        : MD2加密
