@@ -2,6 +2,8 @@ package com.springever.util.java.security;
 
 import android.util.Log;
 
+import java.security.MessageDigest;
+
 /**
  * MD5的算法在RFC1321 中定义 在RFC 1321中，给出了Test suite用来检验你的实现是否正确： MD5 ("") =
  * d41d8cd98f00b204e9800998ecf8427e MD5 ("a") = 0cc175b9c0f1b6a831c399e269772661
@@ -41,6 +43,39 @@ public class MD5 {
 			throw e;
 		}
 		return s;
+	}
+
+	/**
+	 * 對字符串進行MD5加密
+	 *
+	 * @param s
+	 * @return 加密後的字符串
+	 */
+	public final static String getMd5(String s) {
+
+		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+				'a', 'b', 'c', 'd', 'e', 'f' };
+		try {
+			if (s != null && !"".equals(s.trim())) {
+				byte[] strTemp = s.getBytes();
+				MessageDigest mdTemp = MessageDigest.getInstance("MD5");
+				mdTemp.update(strTemp);
+				byte[] md = mdTemp.digest();
+				int j = md.length;
+				char str[] = new char[j * 2];
+				int k = 0;
+				for (int i = 0; i < j; i++) {
+					byte byte0 = md[i];
+					str[k++] = hexDigits[byte0 >>> 4 & 0xf];
+					str[k++] = hexDigits[byte0 & 0xf];
+				}
+				return new String(str);
+			} else {
+				return "";
+			}
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public static String md5(String str) throws Exception {

@@ -1,9 +1,4 @@
-package com.springever.util.android;
-
-import android.annotation.SuppressLint;
-
-import com.springever.util.android.CloseUtils;
-import com.springever.util.java.FileIOUtils;
+package com.springever.util.java;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -762,7 +757,12 @@ public final class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            CloseUtils.closeIO(is);
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            is=null;
         }
         switch (p) {
             case 0xefbb:
@@ -816,7 +816,12 @@ public final class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            CloseUtils.closeIO(is);
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            is=null;
         }
         return count;
     }
@@ -970,7 +975,12 @@ public final class FileUtils {
         } catch (NoSuchAlgorithmException | IOException e) {
             e.printStackTrace();
         } finally {
-            CloseUtils.closeIO(dis);
+            try {
+                dis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            dis=null;
         }
         return null;
     }
@@ -1109,7 +1119,6 @@ public final class FileUtils {
      * @param byteNum 字节数
      * @return 合适内存大小
      */
-    @SuppressLint("DefaultLocale")
     private static String byte2FitMemorySize(long byteNum) {
         if (byteNum < 0) {
             return "shouldn't be less than zero!";

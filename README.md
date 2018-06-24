@@ -189,44 +189,6 @@ encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密
 decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
 ```
 
-* ### 文件相关→[android.FileUtils]
-```
-getFileByPath            : 根据文件路径获取文件
-isFileExists             : 判断文件是否存在
-rename                   : 重命名文件
-isDir                    : 判断是否是目录
-isFile                   : 判断是否是文件
-createOrExistsDir        : 判断目录是否存在，不存在则判断是否创建成功
-createOrExistsFile       : 判断文件是否存在，不存在则判断是否创建成功
-createFileByDeleteOldFile: 判断文件是否存在，存在则在创建之前删除
-copyDir                  : 复制目录
-copyFile                 : 复制文件
-moveDir                  : 移动目录
-moveFile                 : 移动文件
-deleteDir                : 删除目录
-deleteFile               : 删除文件
-listFilesInDir           : 获取目录下所有文件
-listFilesInDir           : 获取目录下所有文件包括子目录
-listFilesInDirWithFilter : 获取目录下所有后缀名为suffix的文件
-listFilesInDirWithFilter : 获取目录下所有后缀名为suffix的文件包括子目录
-listFilesInDirWithFilter : 获取目录下所有符合filter的文件
-listFilesInDirWithFilter : 获取目录下所有符合filter的文件包括子目录
-searchFileInDir          : 获取目录下指定文件名的文件包括子目录
-getFileLastModified      : 获取文件最后修改的毫秒时间戳
-getFileCharsetSimple     : 简单获取文件编码格式
-getFileLines             : 获取文件行数
-getDirSize               : 获取目录大小
-getFileSize              : 获取文件大小
-getDirLength             : 获取目录长度
-getFileLength            : 获取文件长度
-getFileMD5               : 获取文件的MD5校验码
-getFileMD5ToString       : 获取文件的MD5校验码
-getDirName               : 根据全路径获取最长目录
-getFileName              : 根据全路径获取文件名
-getFileNameNoExtension   : 根据全路径获取文件名不带拓展名
-getFileExtension         : 根据全路径获取文件拓展名
-```
-
 * ### Fragment相关→[android.FragmentUtils]
 ```
 addFragment              : 新增fragment
@@ -604,18 +566,6 @@ cancel               : 取消吐司显示
 第二步:String uuid= UuidUtils.getUUID()
 ```
 
-* ### 压缩相关→[android.ZipUtils 也可java使用]
-```
-zipFiles          : 批量压缩文件
-zipFile           : 压缩文件
-unzipFiles        : 批量解压文件
-unzipFile         : 解压文件
-unzipFileByKeyword: 解压带有关键字的文件
-getFilesPath      : 获取压缩文件中的文件路径链表
-getComments       : 获取压缩文件中的注释链表
-getEntries        : 获取压缩文件中的文件对象
-```
-
 * ### 日集收集→[adnroid.log]
 ```
 LogCollector.init(getApplicationContext()));
@@ -672,6 +622,7 @@ toSBC           : 转化为全角字符
 * ### Shell相关→[java.ShellUtils]
 ```
 execCmd: 是否是在root下执行命令
+chmodFile :执行shell脚本
 ```
 
 * ### 正则相关→[java.RegexUtils]
@@ -707,6 +658,26 @@ getDateTime             : 获取当前时间（yyyy/MM/dd HH:mm:ss）
 getFormatDate           : 格式化时间（yyyy/MM/dd HH:mm:ss）
 getTwoDay               : 获取连个时间相差的天数，支持yyyy/MM/dd与yyyy-MM-dd
 getDateFutureOrBefore   : 根据初始时间和相隔天数计算最终时间
+maxDayOfMonth           : 获取每个月的天数
+getLastMonthDate        : 获取指定年月上月月末日期
+getLastMonthDate        : 获取指定年月上月月末日期
+beforeDate              : 提前N天的日期
+addHour                 : 提前N个小时的日期
+getLastWeek             : 一周前的日期
+getNextDay              : 取当前相对前后的天数，正数为向后，负数为向前
+getWeekNumOfYear        : 计算当前日期某年的第几周
+getWeekNumOfYearDay     : 计算指定日期某年的第几周
+getWeekFirstDay         : 计算某年某周的开始日期
+getWeekEndDay           : 计算某年某周的结束日期
+getDate                 : 获取当前日期
+getTime                 : 获取当前时间
+getNextWeekDay          : 获取指定日期的下一周日期
+getCurrWeekDay          : 获取指定日期的当前一周日期
+getCurrMonthDay         : 获取指定日期的下个月日期
+getNextMonthDay         : 获取指定日期的下个月日期
+beforeMonthDate         : 前几个月日期
+getPlanWeekDay          : 获取指定日期的预约日期
+getPlanMonthDay         : 获取指定日期的预约日期
 ```
 
 * ### 加密解密相关→[java.EncryptUtils]
@@ -748,6 +719,154 @@ DESPlus    : des算法
 DesSecurity: des算法
 MD5        : md5
 RSACerPlus : rsa
+```
+
+* ### ftp相关→[java.network.ftp.FTPCommon]
+```
+1、FTPModel赋值
+2、new FTPCommon(FTPModel);
+3、ftpLogin登录
+4、down样式的方法为下载；upload样式的方法为上传
+5、最后close方法关闭ftp
+ftpLogin            : 登录ftp
+isOpenFTPConnection : 检查FTP服务器是否关闭 ，如果关闭接则连接登录FTP
+close               : 关闭ftp
+setFileType         : 设置传输文件的类型[文本文件或者二进制文件]
+downloadFile        : 下载文件
+uploadFile          : 上传文件
+pwd                 : 当前目录
+changeDir           : 变更工作目录
+toParentDir         : 返回上一级目录
+createDir           : 创建目录
+getListFiels        : 获得FTP 服务器下所有的文件名列表
+```
+
+* ### uuid相关→[java.network.http.SimpleHttpClient]
+```
+httpPostOrGet: 简单的post、get请求，附带文件上传
+```
+
+* ### uuid相关→[java.JsonUtils]
+```
+xmlStrToJsonStr : XML转成JSON
+mapToJsonStr    : MAP转成JSON
+jsonStrToXmlStr : JSON转成XML
+```
+
+* ### xml相关→[java.XmlUtils]
+```
+readXml             : String转化成XML
+readText            : String转换成Document形成的XML
+formatXml           : 格式化字符串XML
+jsonStrToXmlStr     : JSON转换成XML
+jsonToElement       : JSON转换成Element形成的XML
+validateXMLByXSD    : 通过XSD检验XML
+```
+
+* ### xml报文相关→[java.message.MessageTools]
+```
+removeElements      : 删除String中的某个标签
+getElements         : XML转换成MAP
+jsonToMap           : JSON转换成MAP
+jsonToElement       : JSON转换成Element形成的XML
+jsonToString        : JSON转换成String
+elementToMap        : Element形成的XML转换成MAP
+mapToElement        : MAP转换成Element形成的XML
+loadXmlByFile       : 加载文件形成Documeng形成的XML
+```
+
+* ### pdf相关→[java.PdfManagerUtils]
+```
+pdf                 : 根据图片生成pdf
+mergePdfFiles       : 合并pdf
+```
+
+* ### 压缩相关→[java.ZipUtils 也可java使用]
+```
+zipFiles          : 批量压缩文件
+zipFile           : 压缩文件
+unzipFiles        : 批量解压文件
+unzipFile         : 解压文件
+unzipFileByKeyword: 解压带有关键字的文件
+getFilesPath      : 获取压缩文件中的文件路径链表
+getComments       : 获取压缩文件中的注释链表
+getEntries        : 获取压缩文件中的文件对象
+```
+
+* ### 文件相关→[java.FileUtils]
+```
+getFileByPath            : 根据文件路径获取文件
+isFileExists             : 判断文件是否存在
+rename                   : 重命名文件
+isDir                    : 判断是否是目录
+isFile                   : 判断是否是文件
+createOrExistsDir        : 判断目录是否存在，不存在则判断是否创建成功
+createOrExistsFile       : 判断文件是否存在，不存在则判断是否创建成功
+createFileByDeleteOldFile: 判断文件是否存在，存在则在创建之前删除
+copyDir                  : 复制目录
+copyFile                 : 复制文件
+moveDir                  : 移动目录
+moveFile                 : 移动文件
+deleteDir                : 删除目录
+deleteFile               : 删除文件
+listFilesInDir           : 获取目录下所有文件
+listFilesInDir           : 获取目录下所有文件包括子目录
+listFilesInDirWithFilter : 获取目录下所有后缀名为suffix的文件
+listFilesInDirWithFilter : 获取目录下所有后缀名为suffix的文件包括子目录
+listFilesInDirWithFilter : 获取目录下所有符合filter的文件
+listFilesInDirWithFilter : 获取目录下所有符合filter的文件包括子目录
+searchFileInDir          : 获取目录下指定文件名的文件包括子目录
+getFileLastModified      : 获取文件最后修改的毫秒时间戳
+getFileCharsetSimple     : 简单获取文件编码格式
+getFileLines             : 获取文件行数
+getDirSize               : 获取目录大小
+getFileSize              : 获取文件大小
+getDirLength             : 获取目录长度
+getFileLength            : 获取文件长度
+getFileMD5               : 获取文件的MD5校验码
+getFileMD5ToString       : 获取文件的MD5校验码
+getDirName               : 根据全路径获取最长目录
+getFileName              : 根据全路径获取文件名
+getFileNameNoExtension   : 根据全路径获取文件名不带拓展名
+getFileExtension         : 根据全路径获取文件拓展名
+```
+
+* ### ip相关→[java.IpUtils]
+```
+getIpAddr                : 获取客户端真实的ip
+```
+
+* ### 编码相关→[java.CoderUtil]
+```
+byteArr2HexStr           : 字节数组转16进制字符串
+hexstr2ByteArr           : 16进制字符串转字节数组
+```
+
+* ### 证书相关→[java.security.ConventPFX]
+```
+coverTokeyStore          : 生成jks证书文件
+coverToPfx               : 生成pfx证书文件
+```
+
+* ### Pin Block加解密相关→[java.security.PinBlockUtil]
+```
+encrypt                  : 生成加密数组
+decrypt                  : 解密加密数组
+getHPin                  : pin生成加密数组
+getHAccno                : accno生成加密数组
+```
+
+* ### url加载相关→[java.http.UrlClient]
+```
+execute                  : 给url发送报文
+decrypt                  : 解密加密数组
+getHPin                  : pin生成加密数组
+getHAccno                : accno生成加密数组
+```
+
+* ### 树排序相关→[java.sort.TreeSortUtils]
+```
+sort4Tree                : 按树结构进行排序
 ```
 ***
 

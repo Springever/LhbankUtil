@@ -1,6 +1,4 @@
-package com.springever.util.android;
-
-import com.springever.util.java.StringUtils;
+package com.springever.util.java;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -96,7 +94,7 @@ public final class ZipUtils {
         } finally {
             if (zos != null) {
                 zos.finish();
-                CloseUtils.closeIO(zos);
+                zos=null;
             }
         }
     }
@@ -159,7 +157,8 @@ public final class ZipUtils {
             return zipFile(resFile, "", zos, comment);
         } finally {
             if (zos != null) {
-                CloseUtils.closeIO(zos);
+                zos.close();
+                zos=null;
             }
         }
     }
@@ -205,7 +204,8 @@ public final class ZipUtils {
                 }
                 zos.closeEntry();
             } finally {
-                CloseUtils.closeIO(is);
+                zos.close();
+                zos=null;
             }
         }
         return true;
@@ -319,7 +319,8 @@ public final class ZipUtils {
                             out.write(buffer, 0, len);
                         }
                     } finally {
-                        CloseUtils.closeIO(in, out);
+                        out.close();
+                        out=null;
                     }
                 }
             }

@@ -160,4 +160,33 @@ public final class ShellUtils {
             this.errorMsg = errorMsg;
         }
     }
+
+    /**
+     *
+     * 执行脚本
+     * @param fileParent
+     *            绝对路径
+     */
+    public static void chmodFile(String fileParent) {
+        String cmd = "chmod -R a+wr " + fileParent;
+        String[] cmds = { "/bin/sh", "-c", cmd };
+        Process process;
+        BufferedReader br = null;
+        try {
+            process = Runtime.getRuntime().exec(cmds);
+            br = new BufferedReader(new InputStreamReader(
+                    process.getInputStream()));
+            String line = null;
+            while ((line = br.readLine()) != null) {
+            }
+        } catch (Exception e) {
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
 }
