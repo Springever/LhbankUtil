@@ -1,6 +1,6 @@
 package com.springever.util.java.message;
 
-import com.lhbank.dom4j.Element;
+import org.dom4j.Element;
 
 import java.util.ArrayList;
 import java.util.HashMap;

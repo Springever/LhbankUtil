@@ -12,6 +12,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 
+import com.springever.util.java.FileUtils;
 import com.springever.util.java.ShellUtils;
 
 import java.io.File;

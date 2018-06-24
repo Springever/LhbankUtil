@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 
+import com.springever.util.java.FileUtils;
+
 import java.io.File;
 
 /**
