@@ -597,10 +597,12 @@ showShort            : 显示短时吐司
 showLong             : 显示长时吐司
 cancel               : 取消吐司显示
 ```
+
 * ### 压缩相关→[android.UuidUtils]
 ```
 第一步:UuidUtils.buidleID(context).check();
 第二步:String uuid= UuidUtils.getUUID()
+```
 
 * ### 压缩相关→[android.ZipUtils 也可java使用]
 ```
@@ -753,7 +755,7 @@ decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
 
 gradle:
 ```
-implementation 'com.github.Springever:LhbankUtil:1.1.3'
+implementation 'com.github.Springever:LhbankUtil:1.1.5'
 ```
 
 maven:
@@ -768,7 +770,7 @@ maven:
 <dependency>
 	<groupId>com.github.Springever</groupId>
 	<artifactId>LhbankUtil</artifactId>
-	<version>1.1.3</version>
+	<version>1.1.5</version>
 </dependency>
 ```
 ## 如何使用
