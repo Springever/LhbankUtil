@@ -1,6 +1,6 @@
- ## API
+ ## Android API
 
-* ### Activity相关→[ActivityUtils.java]
+* ### Activity相关→[android.ActivityUtils]
 ```
 isActivityExists   : 判断是否存在Activity
 startActivity      : 打开Activity
@@ -10,7 +10,7 @@ checkAntiHijacking : 判断Activity是否被劫持
 isFastDoubleClick  : 判断事件出发时间间隔是否超过预定值(可用来防止连续点击,预定值设置为1000ms)
 ```
 
-* ### App相关→[AppUtils.java]
+* ### App相关→[android.AppUtils]
 ```
 isInstallApp         : 判断App是否安装
 installApp           : 安装App（支持7.0）
@@ -39,7 +39,7 @@ isActivity           : 判断某个Intent是存在的
 isLifeActivity       : 判断一个app已经启动
 ```
 
-* ### 栏相关→[BarUtils.java]
+* ### 栏相关→[android.BarUtils]
 ```
 setTransparentStatusBar: 设置透明状态栏（api大于19方可使用）
 hideStatusBar          : 隐藏状态栏
@@ -50,7 +50,7 @@ showNotificationBar    : 显示通知栏
 hideNotificationBar    : 隐藏通知栏
 ```
 
-* ### 缓存相关→[CacheUtils.java]
+* ### 缓存相关→[android.CacheUtils]
 ```
 getInstance    : 获取缓存实例
 put            : 缓存中写入数据
@@ -68,7 +68,7 @@ remove         : 根据键值移除缓存
 clear          : 清除所有缓存
 ```
 
-* ### 清除相关→[CleanUtils.java]
+* ### 清除相关→[android.CleanUtils]
 ```
 cleanInternalCache   : 清除内部缓存
 cleanInternalFiles   : 清除内部文件
@@ -79,7 +79,7 @@ cleanExternalCache   : 清除外部缓存
 cleanCustomCache     : 清除自定义目录下的文件
 ```
 
-* ### 剪贴板相关→[ClipboardUtils.java]
+* ### 剪贴板相关→[android.ClipboardUtils]
 ```
 copyText  : 复制文本到剪贴板
 getText   : 获取剪贴板的文本
@@ -89,13 +89,13 @@ copyIntent: 复制意图到剪贴板
 getIntent : 获取剪贴板的意图
 ```
 
-* ### 关闭相关→[CloseUtils.java]
+* ### 关闭相关→[android.CloseUtils]
 ```
 closeIO       : 关闭IO
 closeIOQuietly: 安静关闭IO
 ```
 
-* ### 转换相关→[ConvertUtils.java]
+* ### 转换相关→[android.ConvertUtils]
 ```
 bytes2HexString, hexString2Bytes        : byteArr与hexString互转
 chars2Bytes, bytes2Chars                : charArr与byteArr互转
@@ -117,12 +117,12 @@ dp2px, px2dp                            : dp与px互转
 sp2px, px2sp                            : sp与px互转
 ```
 
-* ### 崩溃相关→[CrashUtils.java]
+* ### 崩溃相关→[android.CrashUtils]
 ```
 init: 初始化
 ```
 
-* ### 设备相关→[DeviceUtils.java]
+* ### 设备相关→[android.DeviceUtils]
 ```
 isDeviceRooted   : 判断设备是否rooted
 getSDKDescVersion: 获取设备android版本号（如1.0）
@@ -140,15 +140,20 @@ getClientDeviceInfo: 可以用于获取设备唯一标示
 isCamera         : 判断相机是否可以用
 getSerialNumber  : 获取序列号
 getUuidNew       : 根据序列号与androidId来生成UUID
+
+```
+* ### 弹出框→[android.DialogUtils]
+```
+AlertDialogInfo  : 带确定按钮的提示文字
 ```
 
-* ### 判空相关→[EmptyUtils.java]
+* ### 判空相关→[android.EmptyUtils]
 ```
 isEmpty   : 判断对象是否为空
 isNotEmpty: 判断对象是否非空
 ```
 
-* ### 编码解码相关→[EncodeUtils.java]
+* ### 编码解码相关→[android.EncodeUtils]
 ```
 urlEncode          : URL编码
 urlDecode          : URL解码
@@ -160,7 +165,7 @@ htmlEncode         : Html编码
 htmlDecode         : Html解码
 ```
 
-* ### 加密解密相关→[EncryptUtils.java]
+* ### 加密解密相关→[android.EncryptUtils]
 ```
 encryptMD2, encryptMD2ToString                        : MD2加密
 encryptMD5, encryptMD5ToString                        : MD5加密
@@ -184,22 +189,7 @@ encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密
 decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
 ```
 
-* ### 文件相关→[FileIOUtils.java]
-```
-writeFileFromIS            : 将输入流写入文件
-writeFileFromBytesByStream : 将字节数组写入文件
-writeFileFromBytesByChannel: 将字节数组写入文件
-writeFileFromBytesByMap    : 将字节数组写入文件
-writeFileFromString        : 将字符串写入文件
-readFile2List              : 读取文件到字符串链表中
-readFile2String            : 读取文件到字符串中
-readFile2BytesByStream     : 读取文件到字节数组中
-readFile2BytesByChannel    : 读取文件到字节数组中
-readFile2BytesByMap        : 读取文件到字节数组中
-setBufferSize              : 设置缓冲区尺寸
-```
-
-* ### 文件相关→[FileUtils.java]
+* ### 文件相关→[android.FileUtils]
 ```
 getFileByPath            : 根据文件路径获取文件
 isFileExists             : 判断文件是否存在
@@ -237,7 +227,7 @@ getFileNameNoExtension   : 根据全路径获取文件名不带拓展名
 getFileExtension         : 根据全路径获取文件拓展名
 ```
 
-* ### Fragment相关→[FragmentUtils.java]
+* ### Fragment相关→[android.FragmentUtils]
 ```
 addFragment              : 新增fragment
 hideAddFragment          : 先隐藏后新增fragment
@@ -272,12 +262,12 @@ setBackgroundResource    : 设置背景资源
 setBackground            : 设置背景
 ```
 
-* ### Handler相关→[HandlerUtils.java]
+* ### Handler相关→[android.HandlerUtils]
 ```
 HandlerHolder: 使用必读
 ```
 
-* ### 图片相关→[ImageUtils.java]
+* ### 图片相关→[android.ImageUtils]
 ```
 bitmap2Bytes, bytes2Bitmap      : bitmap与byteArr互转
 drawable2Bitmap, bitmap2Drawable: drawable与bitmap互转
@@ -309,7 +299,7 @@ bitmapToBase64                  : bitmap转base64
 createImageThumbnail			: 获取缩略图
 ```
 
-* ### 意图相关→[IntentUtils.java]
+* ### 意图相关→[android.IntentUtils]
 ```
 getInstallAppIntent        : 获取安装App（支持6.0）的意图
 getUninstallAppIntent      : 获取卸载App的意图
@@ -322,7 +312,7 @@ getShutdownIntent          : 获取关机的意图
 getCaptureIntent           : 获取拍照的意图
 ```
 
-* ### 键盘相关→[KeyboardUtils.java]
+* ### 键盘相关→[android.KeyboardUtils]
 ```
 showSoftInput               : 动态显示软键盘
 hideSoftInput               : 动态隐藏软键盘
@@ -330,7 +320,7 @@ toggleSoftInput             : 切换键盘显示与否状态
 clickBlankArea2HideSoftInput: 点击屏幕空白区域隐藏软键盘
 ```
 
-* ### 定位相关→[LocationUtils.java]
+* ### 定位相关→[android.LocationUtils]
 ```
 isGpsEnabled     : 判断Gps是否可用
 isLocationEnabled: 判断定位是否可用
@@ -345,7 +335,7 @@ isBetterLocation : 是否更好的位置
 isSameProvider   : 是否相同的提供者
 ```
 
-* ### 日志相关→[LogUtils.java]
+* ### 日志相关→[android.LogUtils]
 ```
 Builder.setLogSwitch     : 设置log总开关
 Builder.setConsoleSwitch : 设置log控制台开关
@@ -367,7 +357,7 @@ json                     : log字符串之json
 xml                      : log字符串之xml
 ```
 
-* ### 网络相关→[NetworkUtils.java]
+* ### 网络相关→[android.NetworkUtils]
 ```
 openWirelessSettings  : 打开网络设置界面
 isConnected           : 判断网络是否连接
@@ -386,7 +376,7 @@ getDomainAddress      : 获取域名ip地址
 intToIp               : int的ip转成ip字符串
 ```
 
-* ### 手机相关→[PhoneUtils.java]
+* ### 手机相关→[android.PhoneUtils]
 ```
 isPhone            : 判断设备是否是手机
 getIMEI            : 获取IMEI码
@@ -405,7 +395,7 @@ getContactNum      : 打开手机联系人界面点击联系人后便获取该�
 getAllSMS          : 获取手机短信并保存到xml中
 ```
 
-* ### 拼音相关→[PinyinUtils.java]
+* ### 拼音相关→[SimpleArrayMapPinyinUtils]
 ```
 ccs2Pinyin           : 汉字转拼音
 ccs2Pinyin           : 汉字转拼音
@@ -415,34 +405,14 @@ getSurnamePinyin     : 根据名字获取姓氏的拼音
 getSurnameFirstLetter: 根据名字获取姓氏的首字母
 ```
 
-* ### 进程相关→[ProcessUtils.java]
+* ### 进程相关→[SimpleArrayMapProcessUtils]
 ```
 getForegroundProcessName  : 获取前台线程包名
 killAllBackgroundProcesses: 杀死所有的后台服务进程
 killBackgroundProcesses   : 杀死后台服务进程
 ```
 
-* ### 正则相关→[RegexUtils.java]
-```
-isMobileSimple : 验证手机号（简单）
-isMobileExact  : 验证手机号（精确）
-isTel          : 验证电话号码
-isIDCard15     : 验证身份证号码15位
-isIDCard18     : 验证身份证号码18位
-isEmail        : 验证邮箱
-isURL          : 验证URL
-isZh           : 验证汉字
-isUsername     : 验证用户名
-isDate         : 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
-isIP           : 验证IP地址
-isMatch        : 判断是否匹配正则
-getMatches     : 获取正则匹配的部分
-getSplits      : 获取正则匹配分组
-getReplaceFirst: 替换正则匹配的第一部分
-getReplaceAll  : 替换所有正则匹配的部分
-```
-
-* ### 屏幕相关→[ScreenUtils.java]
+* ### 屏幕相关→[android.ScreenUtils]
 ```
 getScreenWidth         : 获取屏幕的宽度（单位：px）
 getScreenHeight        : 获取屏幕的高度（单位：px）
@@ -456,7 +426,7 @@ captureWithoutStatusBar: 获取当前屏幕截图，不包含状态栏
 isScreenLock           : 判断是否锁屏
 ```
 
-* ### SD卡相关→[SDCardUtils.java]
+* ### SD卡相关→[android.SDCardUtils]
 ```
 isSDCardEnable: 判断SD卡是否可用
 getSDCardPath : 获取SD卡路径
@@ -465,7 +435,7 @@ getFreeSpace  : 计算SD卡的剩余空间
 getSDCardInfo : 获取SD卡信息
 ```
 
-* ### 服务相关→[ServiceUtils.java]
+* ### 服务相关→[android.ServiceUtils]
 ```
 getAllRunningService: 获取所有运行的服务
 startService        : 启动服务
@@ -475,12 +445,7 @@ unbindService       : 解绑服务
 isServiceRunning    : 判断服务是否运行
 ```
 
-* ### Shell相关→[ShellUtils.java]
-```
-execCmd: 是否是在root下执行命令
-```
-
-* ### 尺寸相关→[SizeUtils.java]
+* ### 尺寸相关→[android.SizeUtils]
 ```
 dp2px, px2dp     : dp与px转换
 sp2px, px2sp     : sp与px转换
@@ -491,7 +456,7 @@ getMeasuredWidth : 获取测量视图宽度
 getMeasuredHeight: 获取测量视图高度
 ```
 
-* ### Snackbar相关→[SnackbarUtils.java]
+* ### Snackbar相关→[android.SnackbarUtils]
 ```
 with           : 设置snackbar依赖view
 setMessage     : 设置消息
@@ -509,7 +474,7 @@ getView        : 获取snackbar视图
 addView        : 添加snackbar视图
 ```
 
-* ### SpannableString相关→[SpanUtils.java]
+* ### SpannableString相关→[android.SpanUtils]
 ```
 setFlag           : 设置标识
 setForegroundColor: 设置前景色
@@ -545,7 +510,7 @@ appendSpace       : 追加空白
 create            : 创建样式字符串
 ```
 
-* ### SP相关→[SPUtils.java]
+* ### SP相关→[android.SharedPreferenceUtils]
 ```
 getInstance: 获取SP实例
 put        : SP中写入数据
@@ -560,23 +525,7 @@ remove     : SP中移除该key
 clear      : SP中清除所有数据
 ```
 
-* ### 字符串相关→[StringUtils.java]
-```
-isEmpty         : 判断字符串是否为null或长度为0
-isTrimEmpty     : 判断字符串是否为null或全为空格
-isSpace         : 判断字符串是否为null或全为空白字符
-equals          : 判断两字符串是否相等
-equalsIgnoreCase: 判断两字符串忽略大小写是否相等
-null2Length0    : null转为长度为0的字符串
-length          : 返回字符串长度
-upperFirstLetter: 首字母大写
-lowerFirstLetter: 首字母小写
-reverse         : 反转字符串
-toDBC           : 转化为半角字符
-toSBC           : 转化为全角字符
-```
-
-* ### 线程池相关→[ThreadPoolUtils.java]
+* ### 线程池相关→[android.ThreadPoolUtils]
 ```
 ThreadPoolUtils       : ThreadPoolUtils构造函数
 execute               : 在未来某个时间执行给定的命令
@@ -595,7 +544,7 @@ scheduleWithFixedRate : 延迟并循环执行命令
 scheduleWithFixedDelay: 延迟并以固定休息时间循环执行命令
 ```
 
-* ### 时间相关→[TimeUtils.java]
+* ### 时间相关→[android.TimeUtils]
 ```
 millis2String           : 将时间戳转为时间字符串
 string2Millis           : 将时间字符串转为时间戳
@@ -634,7 +583,7 @@ getTwoDay               : 获取连个时间相差的天数，支持yyyy/MM/dd�
 getDateFutureOrBefore   : 根据初始时间和相隔天数计算最终时间
 ```
 
-* ### 吐司相关→[ToastUtils.java]
+* ### 吐司相关→[android.ToastUtils]
 ```
 setGravity           : 设置吐司位置
 setView              : 设置吐司view
@@ -648,8 +597,12 @@ showShort            : 显示短时吐司
 showLong             : 显示长时吐司
 cancel               : 取消吐司显示
 ```
+* ### 压缩相关→[android.UuidUtils]
+```
+第一步:UuidUtils.buidleID(context).check();
+第二步:String uuid= UuidUtils.getUUID()
 
-* ### 压缩相关→[ZipUtils.java]
+* ### 压缩相关→[android.ZipUtils 也可java使用]
 ```
 zipFiles          : 批量压缩文件
 zipFile           : 压缩文件
@@ -661,12 +614,7 @@ getComments       : 获取压缩文件中的注释链表
 getEntries        : 获取压缩文件中的文件对象
 ```
 
-* ### 弹出框相关→[DialogUtils.java]
-```
-AlertDialogInfo   : 新建弹出框（可以带动作）
-```
-
-* ### 加密相关→[security.java]
+* ### 加密相关→[security]
 ```
 AESCoder   : aes算法
 Base64     : base64
@@ -683,34 +631,154 @@ MD5        : md5
 RSACerPlus : rsa
 ```
 
-* ### 日集收集→[util.log]
+* ### 日集收集→[adnroid.log]
 ```
 LogCollector.init(getApplicationContext()));
 日志在：Environment.getExternalStorageDirectory()
     					.getAbsolutePath()+"/LhbankLog/"下
 
+ ## Java API
+
+* ### 文件相关→[java.FileIOUtils]
+```
+writeFileFromIS            : 将输入流写入文件
+writeFileFromBytesByStream : 将字节数组写入文件
+writeFileFromBytesByChannel: 将字节数组写入文件
+writeFileFromBytesByMap    : 将字节数组写入文件
+writeFileFromString        : 将字符串写入文件
+readFile2List              : 读取文件到字符串链表中
+readFile2String            : 读取文件到字符串中
+readFile2BytesByStream     : 读取文件到字节数组中
+readFile2BytesByChannel    : 读取文件到字节数组中
+readFile2BytesByMap        : 读取文件到字节数组中
+setBufferSize              : 设置缓冲区尺寸
+```
+
+* ### 查找区域→[java.AddressUtils]
+getAddresses	: 根据ip查找地址区域
+
+```
+
+* ### 农历与公历→[java.LunarUtils]
+```
+lunarYearToGanZhi   : 农历转天干地支
+LunarToSolar        : 农历转公历
+SolarToLunar        : 公历转农历
+```
+
+* ### 字符串相关→[java.StringUtils]
+```
+isEmpty         : 判断字符串是否为null或长度为0
+isTrimEmpty     : 判断字符串是否为null或全为空格
+isSpace         : 判断字符串是否为null或全为空白字符
+equals          : 判断两字符串是否相等
+equalsIgnoreCase: 判断两字符串忽略大小写是否相等
+null2Length0    : null转为长度为0的字符串
+length          : 返回字符串长度
+upperFirstLetter: 首字母大写
+lowerFirstLetter: 首字母小写
+reverse         : 反转字符串
+toDBC           : 转化为半角字符
+toSBC           : 转化为全角字符
+```
+
+* ### Shell相关→[java.ShellUtils]
+```
+execCmd: 是否是在root下执行命令
+```
+
+* ### 正则相关→[java.RegexUtils]
+```
+isMobileSimple : 验证手机号（简单）
+isMobileExact  : 验证手机号（精确）
+isTel          : 验证电话号码
+isIDCard15     : 验证身份证号码15位
+isIDCard18     : 验证身份证号码18位
+isEmail        : 验证邮箱
+isURL          : 验证URL
+isZh           : 验证汉字
+isUsername     : 验证用户名
+isDate         : 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
+isIP           : 验证IP地址
+isMatch        : 判断是否匹配正则
+getMatches     : 获取正则匹配的部分
+getSplits      : 获取正则匹配分组
+getReplaceFirst: 替换正则匹配的第一部分
+getReplaceAll  : 替换所有正则匹配的部分
+```
+
+* ### uuid相关→[java.UuidUtils]
+```
+getUUID: 生成一个128位的唯一标识符
+```
+
+* ### uuid相关→[java.DateUtils]
+```
+dateAdd                 : 根据初始时间和相隔时间计算最终时间
+dateDiff                : 计算两个时间相差多少时间
+getDateTime             : 获取当前时间（yyyy/MM/dd HH:mm:ss）
+getFormatDate           : 格式化时间（yyyy/MM/dd HH:mm:ss）
+getTwoDay               : 获取连个时间相差的天数，支持yyyy/MM/dd与yyyy-MM-dd
+getDateFutureOrBefore   : 根据初始时间和相隔天数计算最终时间
+```
+* ### 加密解密相关→[java.EncryptUtils]
+```
+encryptMD2, encryptMD2ToString                        : MD2加密
+encryptMD5, encryptMD5ToString                        : MD5加密
+encryptMD5File, encryptMD5File2String                 : MD5加密文件
+encryptSHA1, encryptSHA1ToString                      : SHA1加密
+encryptSHA224, encryptSHA224ToString                  : SHA224加密
+encryptSHA256, encryptSHA256ToString                  : SHA256加密
+encryptSHA384, encryptSHA384ToString                  : SHA384加密
+encryptSHA512, encryptSHA512ToString                  : SHA512加密
+encryptHmacMD5, encryptHmacMD5ToString                : HmacMD5加密
+encryptHmacSHA1, encryptHmacSHA1ToString              : HmacSHA1加密
+encryptHmacSHA224, encryptHmacSHA224ToString          : HmacSHA224加密
+encryptHmacSHA256, encryptHmacSHA256ToString          : HmacSHA256加密
+encryptHmacSHA384, encryptHmacSHA384ToString          : HmacSHA384加密
+encryptHmacSHA512, encryptHmacSHA512ToString          : HmacSHA512加密
+encryptDES, encryptDES2HexString, encryptDES2Base64   : DES加密
+decryptDES, decryptHexStringDES, decryptBase64DES     : DES解密
+encrypt3DES, encrypt3DES2HexString, encrypt3DES2Base64: 3DES加密
+decrypt3DES, decryptHexString3DES, decryptBase64_3DES : 3DES解密
+encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密
+decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
 ```
 ***
 
-## About
+## 关于
+分为android与java两部分，android内容为util.android;java内容为util.java
 
+## 如何获得
 
-## Download
-
-Gradle:
-``` groovy
-compile 'com.springever:util:1.0.0'
+gradle:
+```
+implementation 'com.github.Springever:LhbankUtil:1.1.3'
 ```
 
+maven:
+```
+<repositories>
+	<repository>
+		 <id>jitpack.io</id>
+		 <url>https://jitpack.io</url>
+	</repository>
+</repositories>
 
-## How to use
+<dependency>
+	<groupId>com.github.Springever</groupId>
+	<artifactId>LhbankUtil</artifactId>
+	<version>1.1.3</version>
+</dependency>
+```
+## 如何使用
 
 ```
 直接调用相关工具类静态方法
 ```
 
 
-## Proguard
+## Proguard混淆
 
 ```
 -keep class com.springever.util.** { *; }

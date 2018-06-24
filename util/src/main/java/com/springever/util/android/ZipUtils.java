@@ -1,4 +1,6 @@
-package com.springever.util.android.util;
+package com.springever.util.android;
+
+import com.springever.util.java.StringUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -18,8 +20,8 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
+ *
+
  *     time  : 2016/08/27
  *     desc  : 压缩相关工具类
  * </pre>
