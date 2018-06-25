@@ -1,5 +1,6 @@
 package com.springever.util.java;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -30,9 +31,90 @@ public class AddressUtils {
             if (temp.length < 3) {
                 return null;//无效IP，局域网测试
             }
+
             return returnStr;
         }
         return null;
+    }
+
+    /**
+     *
+     * @param ip             ip地址 格式为：192.168.1.1
+     * @param encodingString 服务器端请求编码。如GBK,UTF-8等
+     * @return 实际生活中的地址
+     */
+    public static String getRealAddress(String ip, String encodingString){
+        String encodeString = getAddresses(ip, encodingString);
+        String address = "";
+        if (!StringUtils.isEmpty(encodeString)) {
+            try {
+                JSONObject jsonObject = new JSONObject(encodeString);
+                String code = jsonObject.optString("code", "1");
+                if ("0".equals(code)) {
+                    JSONObject data = jsonObject.optJSONObject("data");
+                    if (data != null) {
+                        String country = jsonObject.optString("country", "").toString();//国家
+                        String region = jsonObject.optString("region", "").toString();//省份
+                        String city = jsonObject.optString("city", "").toString();//城市
+                        String county = jsonObject.optString("county", "").toString();//区/县
+                        String area = jsonObject.optString("area", "").toString();//地区
+                        String country_id = jsonObject.optString("country_id", "").toString();//国家id
+                        String region_id = jsonObject.optString("region_id", "").toString();//省份id
+                        String city_id = jsonObject.optString("city_id", "").toString();//城市id
+                        String county_id = jsonObject.optString("county_id", "").toString();//区/县id
+                        String area_id = jsonObject.optString("area_id", "").toString();//地区id
+                        StringBuilder sb = new StringBuilder();
+                        if (!StringUtils.isEmpty(country) && !"XX".equals(country)
+                                && !"内网IP".equals(country) && !"local".equals(country)) {
+                            sb.append(country);
+                            sb.append(",");
+                        }
+                        if (!StringUtils.isEmpty(region) && !"XX".equals(region)
+                                && !"内网IP".equals(region) && !"local".equals(region)) {
+                            sb.append(region);
+                            sb.append(",");
+                        }
+                        if (!StringUtils.isEmpty(city) && !"XX".equals(city)
+                                && !"内网IP".equals(city) && !"local".equals(city)) {
+                            sb.append(city);
+                            sb.append(",");
+                        }
+                        if (!StringUtils.isEmpty(county) && !"XX".equals(county)
+                                && !"内网IP".equals(county) && !"local".equals(county)) {
+                            sb.append(county);
+                            sb.append(",");
+                        }
+                        sb.append(";");
+                        if (!StringUtils.isEmpty(country_id) && !"XX".equals(country_id)
+                                && !"内网IP".equals(country_id) && !"local".equals(country_id)) {
+                            sb.append(country_id);
+                            sb.append(",");
+                        }
+                        if (!StringUtils.isEmpty(region_id) && !"XX".equals(region_id)
+                                && !"内网IP".equals(region_id) && !"local".equals(region_id)) {
+                            sb.append(region_id);
+                            sb.append(",");
+                        }
+                        if (!StringUtils.isEmpty(city_id) && !"XX".equals(city_id)
+                                && !"内网IP".equals(city_id) && !"local".equals(city_id)) {
+                            sb.append(city_id);
+                            sb.append(",");
+                        }
+                        if (!StringUtils.isEmpty(county_id) && !"XX".equals(county_id)
+                                && !"内网IP".equals(county_id) && !"local".equals(county_id)) {
+                            sb.append(county_id);
+                            sb.append(",");
+                        }
+                        address = sb.toString();
+                    } else {
+                        address = null;
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return address;
     }
 
     /**
