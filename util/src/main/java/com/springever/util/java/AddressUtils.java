@@ -1,7 +1,7 @@
 package com.springever.util.java;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.lhbank.orgjson.JSONException;
+import com.lhbank.orgjson.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -31,7 +31,6 @@ public class AddressUtils {
             if (temp.length < 3) {
                 return null;//无效IP，局域网测试
             }
-
             return returnStr;
         }
         return null;
@@ -53,16 +52,16 @@ public class AddressUtils {
                 if ("0".equals(code)) {
                     JSONObject data = jsonObject.optJSONObject("data");
                     if (data != null) {
-                        String country = jsonObject.optString("country", "").toString();//国家
-                        String region = jsonObject.optString("region", "").toString();//省份
-                        String city = jsonObject.optString("city", "").toString();//城市
-                        String county = jsonObject.optString("county", "").toString();//区/县
-                        String area = jsonObject.optString("area", "").toString();//地区
-                        String country_id = jsonObject.optString("country_id", "").toString();//国家id
-                        String region_id = jsonObject.optString("region_id", "").toString();//省份id
-                        String city_id = jsonObject.optString("city_id", "").toString();//城市id
-                        String county_id = jsonObject.optString("county_id", "").toString();//区/县id
-                        String area_id = jsonObject.optString("area_id", "").toString();//地区id
+                        String country = data.optString("country", "").toString();//国家
+                        String region = data.optString("region", "").toString();//省份
+                        String city = data.optString("city", "").toString();//城市
+                        String county = data.optString("county", "").toString();//区/县
+                        String area = data.optString("area", "").toString();//地区
+                        String country_id = data.optString("country_id", "").toString();//国家id
+                        String region_id = data.optString("region_id", "").toString();//省份id
+                        String city_id = data.optString("city_id", "").toString();//城市id
+                        String county_id = data.optString("county_id", "").toString();//区/县id
+                        String area_id = data.optString("area_id", "").toString();//地区id
                         StringBuilder sb = new StringBuilder();
                         if (!StringUtils.isEmpty(country) && !"XX".equals(country)
                                 && !"内网IP".equals(country) && !"local".equals(country)) {
@@ -240,5 +239,9 @@ public class AddressUtils {
             }
         }
         return outBuffer.toString();
+    }
+
+    public static void main(String[] args){
+        System.out.println(AddressUtils.getRealAddress("124.65.112.94","utf-8"));
     }
 }
