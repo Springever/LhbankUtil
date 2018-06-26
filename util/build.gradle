@@ -51,7 +51,9 @@ dependencies {
     implementation files('libs/dom4j-1.6.1.jar')
     implementation files('libs/servlet-api.jar')
     implementation files('libs/lhbank_commons_beanutils_1.0.0.jar')
-
+    implementation files('libs/lhbank_bcprov_ext_jdk15on_1.0.0.jar')
+    implementation files('libs/lhbank_guava_1.0.0.jar')
+    implementation files('libs/lhbank_commons_codec_1.0.0.jar')
 }
 
 //jcenter

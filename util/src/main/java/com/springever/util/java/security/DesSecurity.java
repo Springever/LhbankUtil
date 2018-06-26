@@ -27,10 +27,10 @@ public class DesSecurity {
 			String test = "{'DEVICE_INFO':'356409046312768|SH12DPL00333|android 2.3.7','PHONE_NO':'13822222222','OS_VERSION':'2.3.7','LOGIN_TYPE':'1','TransId':'ClientLogin','DEVICE_DIGEST':'E8Aq\\/anVagUov8CLabrKrBJXqlQ=','APP_VERSION':'1.4','DEVICE_TYPE':'android','PASSWORD':'21218cca77804d2ba1922c33e0151105','ImageCoder':'0'}";
 			// 默认密钥
 			DesSecurity des = new DesSecurity();
-			// System.out.println("加密前的字符：" + test);
-			// System.out.println("加密后的字符：" + des.encrypt(test));
-			// System.out.println("解密后的字符：" + des.decrypt(des.encrypt(test),
-			// "UTF-8"));
+			System.out.println("加密前的字符：" + test);
+			System.out.println("加密后的字符：" + des.encrypt(test));
+			System.out.println("解密后的字符：" + des.decrypt(des.encrypt(test),
+			"UTF-8"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

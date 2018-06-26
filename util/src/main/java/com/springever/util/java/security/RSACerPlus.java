@@ -75,6 +75,6 @@ public class RSACerPlus {
 					i + 100));
 			encryptdata = ArrayUtils.addAll(encryptdata, doFinal);
 		}
-		return new BASE64Encoder().encode(encryptdata);
+		return new String(Base64.encode(encryptdata,Base64.DEFAULT));
 	}
 }

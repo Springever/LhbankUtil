@@ -1,6 +1,7 @@
 package com.springever.util.java;
 
 import java.text.MessageFormat;
+import java.util.Locale;
 
 /**
  * <pre>
@@ -198,5 +199,18 @@ public final class StringUtils {
     public static String formatString(String suffix){
         //String suffix="index.html?ChannelId=wxbank&openid={0}&state=#/{1}";
         return MessageFormat.format(suffix, "788888", "message");
+    }
+
+    public static String formatStr(String str){
+        String INFO_MSG_TEMPLATE="感谢您使用招商银行，%s本次注册验证码为：%s，请在1分钟内进行验证。相关问题欢迎拨打招商银行客服电话400609999。";
+        String code="1111111";
+        String smsMsg = String.format(INFO_MSG_TEMPLATE, "", code);
+        return smsMsg;
+    }
+
+    public static String formatStrFlag(String str){
+        String  format="%1$s已经安装成功";
+        String  toast=String.format(Locale.getDefault(),format,"你好");
+        return toast;
     }
 }

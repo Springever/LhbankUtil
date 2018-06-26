@@ -30,8 +30,6 @@ public class AESCoder {
 
 	static String IV = "HRBBANKPUBLICVS1";
 
-	static String TAG_PNC = "HRBB";
-
 	/**
 	 * 初始化密
 	 * 

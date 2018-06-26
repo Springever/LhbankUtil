@@ -1,6 +1,6 @@
 package com.springever.util.java.security;
 
-import com.springever.util.java.CoderUtil;
+import static com.springever.util.java.security.Converts.hexstr2ByteArr;
 
 /**
  * Pin Block加解密工具类.
@@ -50,7 +50,7 @@ public class PinBlockUtil {
      * @return 解密16进制字符串
      */
     public static String decrypt(String hexStr, String accno) {
-        return decrypt(CoderUtil.hexstr2ByteArr(hexStr), accno);
+        return decrypt(hexstr2ByteArr(hexStr), accno);
     }
 
 

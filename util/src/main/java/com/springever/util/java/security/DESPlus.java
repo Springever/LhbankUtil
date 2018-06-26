@@ -15,9 +15,9 @@ public class DESPlus {
 			String test = "Hellow Word!4323143231432";
 			// 默认密钥
 			DESPlus des = DESPlus.getInstance();
-			// System.out.println("加密前的字符：" + test);
-			// System.out.println("加密后的字符：" + des.encrypt(test));
-			// System.out.println("解密后的字符：" + des.decrypt(des.encrypt(test)));
+			System.out.println("加密前的字符：" + test);
+			System.out.println("加密后的字符：" + des.encrypt(test));
+			System.out.println("解密后的字符：" + des.decrypt(des.encrypt(test)));
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

@@ -617,7 +617,9 @@ lowerFirstLetter: 首字母小写
 reverse         : 反转字符串
 toDBC           : 转化为半角字符
 toSBC           : 转化为全角字符
-formatString    : 格式化字符串a={0}&b={1}
+formatString    : 格式化字符串 a={0}&b={1}
+formatStr       : 格式化字符串 %s本次注册验证码为：%s
+formatStrFlag   : 根据位置来格式化字符串 %1$s已经安装成功
 ```
 
 * ### Shell相关→[java.ShellUtils]
@@ -650,6 +652,7 @@ getReplaceAll  : 替换所有正则匹配的部分
 ```
 getUUID        : 生成一个128位的唯一标识符
 getUserid      : 生成一个用户id
+randomPassword : 只有数字(0-9)或包含数字和字母(小写)
 ```
 
 * ### uuid相关→[java.DateUtils]
@@ -682,7 +685,73 @@ getPlanWeekDay          : 获取指定日期的预约日期
 getPlanMonthDay         : 获取指定日期的预约日期
 ```
 
-* ### 加密解密相关→[java.EncryptUtils]
+* ### aes128算法相关→[java.security.AesCbcUtils]
+```
+encrypt         : 加密（外包Base64算法）
+decrypt         : 解密
+```
+
+* ### aes128算法相关→[java.security.AESCoder]
+```
+toKey           : 转换明文秘钥
+encrypt         : 加密（外包Base64算法）
+decrypt         : 解密
+```
+
+* ### aes128算法相关→[java.security.AesUtils]
+```
+encrypt         : 加密（外包Base64算法）
+decrypt         : 解密
+```
+
+* ### Base64算法相关→[java.security.Base64]
+```
+encode           : 编码
+decode           : 解码
+```
+
+* ### Base64算法相关→[java.security.Base64Custom]
+```
+encode           :编码
+decode           :解码
+```
+
+* ### 证书相关→[java.security.ConventPFX]
+```
+coverTokeyStore          : 生成jks证书文件
+coverToPfx               : 生成pfx证书文件
+```
+
+* ### 转换相关→[java.security.Converts]
+```
+hexStringToByte  : 把16进制字符串转换成字节数组;
+bytesToHexString : 把字节数组转换成16进制字符串
+bytesToObject    : 把字节数组转换为对象
+objectToBytes    : 把可序列化对象转换成字节数组
+bcd2Str          : BCD码转为10进制串(阿拉伯数据)
+str2Bcd          : 十进制串转为BCD码
+byteArr2HexStr   : 字节数组转16进制字符串
+hexstr2ByteArr   : 16进制字符串转字节数组
+toHexString      : 16进制字节转换成16进制字符串表示
+hexStringToBytes : 16进制字符串转换成16进制字节表示
+stringToChinese  : 汉字转unicode
+chineseToString  : unicode转汉字
+```
+
+* ### DES相关→[java.security.DESPlus]
+```
+getInstance     : 获取单例
+encrypt         : 加密
+decrypt         : 解密
+```
+
+* ### DES相关→[java.security.DesSecurity]
+```
+encrypt         : 加密
+decrypt         : 解密
+```
+
+* ### 加密解密相关→[java.security.EncryptUtils]
 ```
 encryptMD2, encryptMD2ToString                        : MD2加密
 encryptMD5, encryptMD5ToString                        : MD5加密
@@ -706,21 +775,38 @@ encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密
 decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
 ```
 
-* ### 加密相关→[java.security]
+* ### md5相关→[java.security.MD5]
 ```
-AESCoder   : aes算法
-Base64     : base64
-Base64Custom : base64
-Converts   : hexStringToByte把16进制字符串转换成字节数组;
-             bytesToHexString把字节数组转换成16进制字符串
-             bytesToObject把字节数组转换为对象
-             objectToBytes把可序列化对象转换成字节数组
-             bcd2StrBCD码转为10进制串(阿拉伯数据)
-             str2Bcd十进制串转为BCD码
-DESPlus    : des算法
-DesSecurity: des算法
-MD5        : md5
-RSACerPlus : rsa
+getMD5                  : 获取md值
+```
+
+* ### Pin Block加解密相关→[java.security.PinBlockUtil]
+```
+encrypt                  : 生成加密数组
+decrypt                  : 解密加密数组
+getHPin                  : pin生成加密数组
+getHAccno                : accno生成加密数组
+```
+
+* ### 加载证书相关→[java.security.RSACerPlus]
+```
+getInstance              : 获取单例
+initCer                  : 初始化证书
+doEncrypt                : 用公钥加密
+```
+
+* ### RSA算法相关→[java.security.RsaUtils]
+```
+createKeyPairs           : 创建公钥与私钥
+encrypt                  : 公钥加密
+decrypt                  : 私钥解密
+```
+
+* ### SHA算法相关→[java.security.ShaUtils]
+```
+sign                     : sha-1
+digest                   : sha-1
+sha256                   : sha256
 ```
 
 * ### ftp相关→[java.network.ftp.FTPCommon]
@@ -838,26 +924,6 @@ getFileExtension         : 根据全路径获取文件拓展名
 getIpAddr                : 获取客户端真实的ip
 ```
 
-* ### 编码相关→[java.CoderUtil]
-```
-byteArr2HexStr           : 字节数组转16进制字符串
-hexstr2ByteArr           : 16进制字符串转字节数组
-```
-
-* ### 证书相关→[java.security.ConventPFX]
-```
-coverTokeyStore          : 生成jks证书文件
-coverToPfx               : 生成pfx证书文件
-```
-
-* ### Pin Block加解密相关→[java.security.PinBlockUtil]
-```
-encrypt                  : 生成加密数组
-decrypt                  : 解密加密数组
-getHPin                  : pin生成加密数组
-getHAccno                : accno生成加密数组
-```
-
 * ### url加载相关→[java.http.UrlClient]
 ```
 execute                  : 给url发送报文
@@ -877,6 +943,12 @@ generateAccessToken      : 获取token
 ```
 ***
 
+* ### token相关→[java.db.Mysql]
+```
+connectMysql              : 简单建立mysql连接
+```
+***
+
 ## 关于
 分为android与java两部分，android内容为util.android;java内容为util.java
 
@@ -884,7 +956,7 @@ generateAccessToken      : 获取token
 
 gradle:
 ```
-implementation 'com.github.Springever:LhbankUtil:1.1.5'
+implementation 'com.github.Springever:LhbankUtil:1.2.2'
 ```
 
 maven:
@@ -899,7 +971,7 @@ maven:
 <dependency>
 	<groupId>com.github.Springever</groupId>
 	<artifactId>LhbankUtil</artifactId>
-	<version>1.1.5</version>
+	<version>1.2.2</version>
 </dependency>
 ```
 ## 如何使用
@@ -912,7 +984,12 @@ maven:
 ## Proguard混淆
 
 ```
--keep class com.springever.util.** { *; }
--keepclassmembers class com.springever.util.** { *; }
--dontwarn com.springever.util.**
+-dontwarn com.lhbank.commons.**
+-dontwarn com.lhbank.http.**
+-dontwarn com.lhbank.itextpdf.**
+-dontwarn com.lhbank.json.**
+-dontwarn org.dom4j.**
+-dontwarn com.lhbank.cfca.mobile.hke.**
+
+-keep class com.springever.util.java.XmlUtils{*;}
 ```
