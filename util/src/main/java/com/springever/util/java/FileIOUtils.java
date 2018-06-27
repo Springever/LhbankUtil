@@ -1,7 +1,5 @@
 package com.springever.util.java;
 
-import com.springever.util.android.CloseUtils;
-
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

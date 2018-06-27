@@ -15,3 +15,12 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-dontwarn com.lhbank.commons.**
+-dontwarn com.lhbank.http.**
+-dontwarn com.lhbank.itextpdf.**
+-dontwarn com.lhbank.json.**
+-dontwarn org.dom4j.**
+-dontwarn com.lhbank.cfca.mobile.hke.**
+
+-keep class com.springever.util{*;}

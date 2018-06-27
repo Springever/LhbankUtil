@@ -2,7 +2,7 @@ package com.springever.util.android;
 
 import android.util.Base64;
 
-import com.springever.util.android.CloseUtils;
+import com.springever.util.java.CloseUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

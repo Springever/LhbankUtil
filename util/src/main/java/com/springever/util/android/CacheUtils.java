@@ -11,6 +11,8 @@ import android.os.Parcelable;
 import android.os.Process;
 import android.support.annotation.NonNull;
 
+import com.springever.util.java.CloseUtils;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 

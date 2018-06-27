@@ -89,12 +89,6 @@ copyIntent: 复制意图到剪贴板
 getIntent : 获取剪贴板的意图
 ```
 
-* ### 关闭相关→[android.CloseUtils]
-```
-closeIO       : 关闭IO
-closeIOQuietly: 安静关闭IO
-```
-
 * ### 转换相关→[android.ConvertUtils]
 ```
 bytes2HexString, hexString2Bytes        : byteArr与hexString互转
@@ -869,7 +863,7 @@ pdf                 : 根据图片生成pdf
 mergePdfFiles       : 合并pdf
 ```
 
-* ### 压缩相关→[java.ZipUtils 也可java使用]
+* ### 压缩相关→[java.ZipUtils]
 ```
 zipFiles          : 批量压缩文件
 zipFile           : 压缩文件
@@ -947,6 +941,12 @@ generateAccessToken      : 获取token
 ```
 connectMysql              : 简单建立mysql连接
 ```
+
+* ### 关闭相关→[java.CloseUtils]
+```
+closeIO       : 关闭IO
+closeIOQuietly: 安静关闭IO
+```
 ***
 
 ## 关于
@@ -977,7 +977,8 @@ maven:
 ## 如何使用
 
 ```
-直接调用相关工具类静态方法
+android:需要先调用android.Utils初始化Context;
+然后直接调用相关工具类静态方法
 ```
 
 

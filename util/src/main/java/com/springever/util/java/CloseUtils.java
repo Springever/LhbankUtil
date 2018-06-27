@@ -1,4 +1,4 @@
-package com.springever.util.android;
+package com.springever.util.java;
 
 import java.io.Closeable;
 import java.io.IOException;

@@ -1,7 +1,5 @@
 package com.springever.util.java.security;
 
-import com.springever.util.java.security.BASE64Custom;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

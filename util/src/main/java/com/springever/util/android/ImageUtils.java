@@ -32,6 +32,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 
+import com.springever.util.java.CloseUtils;
 import com.springever.util.java.FileUtils;
 
 import java.io.BufferedInputStream;

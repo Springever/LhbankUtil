@@ -5,8 +5,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 
-import com.springever.util.android.CloseUtils;
-import com.springever.util.android.ConvertUtils;
+import com.springever.util.java.CloseUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
