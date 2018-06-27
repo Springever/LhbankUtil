@@ -380,6 +380,7 @@ getScreenRotation      : 获取屏幕旋转角度
 captureWithStatusBar   : 获取当前屏幕截图，包含状态栏
 captureWithoutStatusBar: 获取当前屏幕截图，不包含状态栏
 isScreenLock           : 判断是否锁屏
+shoot                  : 获取屏幕截图
 ```
 
 * ### SD卡相关→[android.SDCardUtils]
@@ -560,11 +561,17 @@ cancel               : 取消吐司显示
 第二步:String uuid= UuidUtils.getUUID()
 ```
 
-* ### 日集收集→[adnroid.log]
+* ### 日集收集相关→[adnroid.log]
 ```
 LogCollector.init(getApplicationContext()));
 日志在：Environment.getExternalStorageDirectory()
     					.getAbsolutePath()+"/LhbankLog/"下
+```
+
+* ### Handler相关→[adnroid.HandlerTimeUtils]
+```
+timer                     : timer与handler配套使用
+getHandler                : thread与handler配套使用
 ```
 ***
 
