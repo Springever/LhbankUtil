@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
+import com.springever.util.java.security.DESUtils;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -280,5 +282,22 @@ public class SharedPreferenceUtils {
             }
         }
         return true;
+    }
+
+    public String getDecryptString(String key) {
+        String info = this.sp.getString(key, "");
+        if (!"".equals(info)) {
+            info = DESUtils.decrypt(info);
+        }
+
+        return info;
+    }
+
+    public void setEncryptString(String key, String value) {
+        if (value != null && !"".equals(value)) {
+            value = DESUtils.encrypt(value);
+        }
+
+        this.sp.edit().putString(key, value).commit();
     }
 }
